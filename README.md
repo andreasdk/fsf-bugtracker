@@ -1,1 +1,1 @@
-# fsf-bugtracker
+[![Build Status](https://travis-ci.org/andreasdk/fsf-bugtracker.svg?branch=master)](https://travis-ci.org/andreasdk/fsf-bugtracker)
