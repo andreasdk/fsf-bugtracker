@@ -2,7 +2,6 @@
 env.py
 __pycache__
 *.png
-static/
 media/
 bin/
 lib/
