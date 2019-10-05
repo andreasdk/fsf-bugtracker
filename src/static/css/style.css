@@ -4,9 +4,9 @@
 /*CSS Variables*/
 
 :root {
-  --primary-color: #FAEC25;
-  --primary-color-light: #FBF271;
-  --primary-color-dark: #7A7637;
+  --primary-color: #57BA98;
+  --primary-color-light: #65CCB8;
+  --primary-color-dark: #3B945E;
   --secondary-color-light: #ffb900;
   --secondary-color-dark:#ff0000;
   --grey-color-light-1: #f7f7f7;
@@ -16,8 +16,8 @@
   --white-color: #fff;
   --black-color: #0a0a0a;
   --bg-color:#3b0053;
-  --primaryfont: 'Open Sans Condensed', sans-serif;
-  --secondaryfont: 'Open Sans', sans-serif;
+  --primaryfont: 'Open Sans', sans-serif;
+  --secondaryfont: 'Open Sans Condensed', sans-serif;
 }
 
 /*Root Element Styles*/
@@ -59,7 +59,6 @@ html {
   
 body {
   background-color: var(--grey-color-light-1);
-  color: var(--grey-color-dark-1);
   font-family: var(--primaryfont);
   font-weight: 400;
   line-height: 1.7;
@@ -74,12 +73,11 @@ body {
 /***Navbar**/
 /**Navbar background color**/
 #navbar__bug {
-  background-color: var(--black-color);
+  background-color: var(--grey-color-dark-3);
 }
-  
 /**Changes navbar toggler background to circle**/
 .navbar-toggler {
-  background-color: var(--primary-color);
+  background-color: var(--grey-color-light-1);
   border-radius: 50%;
   height: 3.5rem;
   width: 3.5rem;
@@ -87,9 +85,9 @@ body {
 /**Sets navbar hover animation**/
 .navbar-light .navbar-nav .nav-link:link,
 .navbar-light .navbar-nav .nav-link:visited {
-  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #FAEC25 50%);
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #f7f7f7 50%);
   background-size: 230%;
-  color: var(--primary-color);
+  color: var(--grey-color-light-1);
   display: inline-block;
   font-size: 2rem;
   font-weight: 300;
@@ -203,7 +201,7 @@ body {
 /**Buttons**/
   
 .btn {
-  border-radius: 10rem;
+  border-radius: 0;
   display: inline-block;
   font-size: 1.5rem;
   padding: 1.5rem 4rem;
@@ -216,17 +214,15 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
   
-.btn-white {
-  background-color: var(--white-color);
-  border-radius: 0;
+.btn-grey {
+  background-color: var(--grey-color-light-1);
   color: var(--grey-color-dark-3);
 }
 
 .btn-primary {
   background-color: var(--primary-color);
   border: var(--primary-color);
-  border-radius: 0;
-  color: var(--black-color);
+  color: var(--grey-color-light-1);
 }
 
 .btn-primary:hover {
@@ -237,11 +233,7 @@ body {
 .feature-section {
   padding: 0;
   margin: 0;
-  background-color: var(--black-color);
-}
-
-.cta-section {
-  background-color: var(--bg-color);
+  background-color: var(--grey-color-light-1);
 }
 
 .cta-icon {
@@ -259,7 +251,7 @@ body {
 }
 /**Setting footer items color, size and top padding**/
 .footer-icon a i {
-  color: var(--primary-color);
+  color: var(--grey-color-light-1);
   font-size: 4rem;
   padding-top: 3rem;
 }
