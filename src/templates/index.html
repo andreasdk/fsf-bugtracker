@@ -7,44 +7,57 @@
 <section class="hero">
     <div class="text-box">
         <h1 class="heading-primary">
-            <span class="heading-primary-main">Unicorn Attractor</span>
+            <span class="heading-primary-main">Bug Tracker</span>
             <span class="heading-primary-sub">Help us help you</span>
         </h1>
-        <a href="#" class="btn btn-white">Latest Features</a>
+        <a href="#" class="btn btn-grey">Latest Bug Reports</a>
     </div>	
 </section>
 
-<section class="container-fluid feature-section">
-    <div class="row align-items-center">
-        <div class="col-md-6 text-center">
-            <h2 class="heading-secondary">Build New Features</h2>
-            <p class="paragraph">Lorum Ipsem</p>
-            <a href="#" class="btn btn-primary">Request A Feature</a>
+<section class="cta-section text-center">
+    <h2 class="heading-secondary py-5">How It Works</h2>
+    <div class="row">
+        <div class="col-md-4 py-3">
+            <i class="fas fa-bug cta-icon py-3"></i>
+            <h3 class="heading-tertiary py-3">Report Bugs</h3>
+            <p class="paragraph py-2">Found a bug in the system? Let us know and we'll get right on it.</p>
         </div>
-        <div class="col-md-6">
-            <img src="{% static 'img/watch.jpg' %}" alt="Man taking photo of ocean" class="img-fluid index-img">
+        <div class="col-md-4 py-3">
+            <i class="fas fa-plus cta-icon py-3"></i>
+            <h3 class="heading-tertiary py-3">Request New Features</h3>
+            <p class="paragraph py-2">Got an idea for a new feature? Share it with the community.</p>
+        </div>
+        <div class="col-md-4 py-3">
+            <i class="fas fa-arrow-up cta-icon py-3"></i>
+            <h3 class="heading-tertiary py-3">Vote For Your Ideas</h3>
+            <p class="paragraph py-2">Give visibility to your favorite suggestions.</p>
         </div>
     </div>
 </section>
 
-<section class="cta-section text-center">
-    <div class="row">
-        <div class="col-md-4 ">
-            <i class="fas fa-bug cta-icon"></i>
-            <h3 class="heading-tertiary">Report Bugs</h3>
-            <p class="paragraph">Found a bug in the system? Let us know and we'll get right on it.</p>
+<section class="container-fluid feature-section my-5">
+    <div class="row align-items-center pb-3">
+        <div class="col-md-6 text-center">
+            <h2 class="heading-secondary">New Features</h2>
+            <p class="paragraph">Have an idea for a feature we haven't built yet? Share it with us, and we'll take a look at the most popular suggestions.</p>
+            <a href="#" class="btn btn-primary">Request A Feature</a>
         </div>
-        <div class="col-md-4">
-            <i class="fas fa-plus cta-icon"></i>
-            <h3 class="heading-tertiary">Report Bugs</h3>
-            <p class="paragraph">Found a bug in the system? Let us know and we'll get right on it.</p>
+        <div class="col-md-6">
+            <img src="{% static 'img/feature.jpg' %}" alt="Man taking photo of ocean" class="img-fluid index-img">
         </div>
-        <div class="col-md-4">
-            <i class="fas fa-arrow-up cta-icon"></i>
-            <h3 class="heading-tertiary">Report Bugs</h3>
-            <p class="paragraph">Found a bug in the system? Let us know and we'll get right on it.</p>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="{% static 'img/bug.jpg' %}" alt="Man taking photo of ocean" class="img-fluid index-img">
+        </div>
+        <div class="col-md-6 text-center">
+            <h2 class="heading-secondary">Bug Reports</h2>
+            <p class="paragraph">Nobody's perfect. If you've found a bug in our system, don't be afraid to let us know about it.</p>
+            <a href="#" class="btn btn-primary">Bug Reports</a>
         </div>
     </div>
 </section>
+
+
 
 {% endblock %}
