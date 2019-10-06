@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 def register(request):
     """Renders the registration form"""
+    template_name='accounts/register.html'
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -27,15 +28,21 @@ def register(request):
         user_form = UserRegistrationForm()
 
     args = {'user_form': user_form}
-    return render(request, 'register.html', args)
+    return render(request, template_name, args)
 
 def login(request):
+    template_name='accounts/login.html'
+
+    if request.user.is_authenticated:
+        messages.success(request, "You are already logged in!", 
+                         extra_tags="alert-primary")
+        return redirect(reverse('index'))
     """Renders the login form"""
     if request.method == 'POST':
         user_form = UserLoginForm(request.POST)
         if user_form.is_valid():
-            user = auth.authenticate(request.POST['username_or_email'],
-                                     password=request.POST['password'])
+            user = auth.authenticate(username=request.POST['username'],
+            password = request.POST['password'])
 
             if user:
                 auth.login(request, user)
@@ -52,14 +59,15 @@ def login(request):
         user_form = UserLoginForm()
 
     args = {'user_form': user_form, 'next': request.GET.get('next', '')}
-    return render(request, 'login.html', args)
+    return render(request, template_name, args)
 
 @login_required
 def profile(request):
+    template_name='accounts/profile.html'
     """Renders user profile page"""
-    return render(request, 'profile.html')
+    return render(request, template_name)
 
-
+@login_required
 def logout(request):
     """Logs user out and redirects to index page"""
     auth.logout(request)
