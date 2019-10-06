@@ -4,9 +4,9 @@
 /*CSS Variables*/
 
 :root {
-  --primary-color: #57BA98;
-  --primary-color-light: #65CCB8;
-  --primary-color-dark: #3B945E;
+  --primary-color: #006AFF;
+  --primary-color-light: #4D97FF;
+  --primary-color-dark: #003580;
   --secondary-color-light: #ffb900;
   --secondary-color-dark:#ff0000;
   --grey-color-light-1: #f7f7f7;
@@ -241,10 +241,110 @@ body {
   font-size: 4rem;
 }
 
+/**Forms**/
+.close-icon {
+  position: fixed;
+  top: 0.3em;
+  right: 0.5em;
+  font-size: 3.5rem;
+  color: var(--white-color);
+}
+/**Gives padding to login, register and change password forms. 
+Gives gradient background color
+**/
+.section-reglog {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, var(--primary-color-light), var(--primary-color-dark));
+  height: 100vh;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .section-reglog {
+    padding: 10rem 0;
+  }
+}
+
+/**Sets the form background image, white semi transparent background
+Completely transparent at 50% of width at 105degree angle.
+**/
+.reglog {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/reglog.jpg);
+  background-size: 100%;
+  border-radius: 3px;
+  width: 75%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 75em) {
+  .reglog {
+    background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url(../img/reglog.jpg);
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .reglog {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/reglog.jpg);
+  }
+}
+/**Sets form to take up 50% of container by default**/
+.reglog__form {
+  width: 50%;
+  padding: 6rem;
+}
+@media only screen and (max-width: 75em) {
+  .reglog__form {
+    width: 65%;
+  }
+}
+  
+@media only screen and (max-width: 56.25em) {
+  .reglog__form {
+    width: 100%;
+  }
+}
+/**Sets registration/login/change password form input**/
+.form-control {
+  font-size: 1.75rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rbga(#fff, 0.5);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block;
+  transition: all .3s; 
+}
+@media only screen and (max-width: 56.25em) {
+  .form-control {
+    width: 100%;
+  }
+}
+/**Bottom border when registration/login form input in focus**/
+.form-control:focus {
+  outline: none;
+  border-bottom: 5px solid var(--primary-color);
+  box-shadow: 0.1rem 1rem rgba(0, 0, 0, 0.1);
+}
+/**Bottom border when registration/login form is invalid and in focus**/
+.form-control:focus:invalid {
+  border-bottom: 3px solid var(--secondary-color-dark);
+}
+
+.control-label {
+  display: none;
+}
 /**Footer**/
 /**Centering footer items, and giving footer minimum height**/
 .footer {
-  background-color: var(--black-color);
+  background-color: var(--grey-color-dark-3);
   display: flex;
   justify-content: center;
   min-height: 10rem;

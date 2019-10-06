@@ -4,18 +4,21 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField()
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter Username'}))
     password = forms.CharField(
-        widget=forms.PasswordInput)
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter Password'}))
 
 class UserRegistrationForm(UserCreationForm):
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'New Username'}))
+    email = forms.CharField(widget=forms.EmailInput(
+        attrs={'placeholder': 'Enter Email Address'}))
     password1 = forms.CharField(
         label='Password',
-        widget=forms.PasswordInput)
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter Password'}))
     password2 = forms.CharField(
         label='Password Confirmation',
-        widget=forms.PasswordInput
-    )
+        widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
 
     class Meta:
         model = User
