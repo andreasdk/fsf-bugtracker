@@ -31,7 +31,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 
-ALLOWED_HOSTS = ["bugtracker-fsf.herokuapp.com"]
+ALLOWED_HOSTS = ["bugtracker-fsf.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -157,5 +157,10 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
