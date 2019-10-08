@@ -12,7 +12,7 @@ class BugForm(forms.ModelForm):
     description = forms.CharField(
         min_length=20,
         max_length=1000,
-        widget=forms.TextInput(attrs={'placeholder': 'Bug Description'}),
+        widget=forms.Textarea(attrs={'placeholder': 'Bug Description'}),
         required=True
     )
 
