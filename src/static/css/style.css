@@ -190,6 +190,45 @@ body {
   font-family:var(--secondaryfont);
 }
 
+/*Utility Classes*/
+
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-large {
+  margin-bottom: 8rem;
+}
+@media only screen and (max-width: 56.25em) {
+  .u-margin-bottom-large {
+    margin-bottom: 5rem !important; } 
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+@media only screen and (max-width: 56.25em) {
+  .u-margin-bottom-medium {
+    margin-bottom: 3rem !important;
+  }
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-padding-bottom-small {
+  padding-bottom: 3rem;
+}
+
+.u-padding-top {
+  padding-top: 2rem;
+}
+
+.u-padding-top-lg {
+  padding-top: 5rem;
+}
+
 /***Hero Image**/
 
 .hero{
@@ -349,6 +388,11 @@ Completely transparent at 50% of width at 105degree angle.
 
 .control-label {
   display: none;
+}
+
+.bug-form {
+  background-image: linear-gradient(to right bottom, var(--primary-color-light), var(--primary-color-dark));
+  height: 100vh;
 }
 
 .email-container {
