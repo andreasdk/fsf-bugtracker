@@ -57,4 +57,29 @@ class Bug(models.Model):
         ordering: ('-votes')
 
     def __str__(self):
-        return self.title
+        return "#{0} {1}".format(
+            self.id, self.title)
+
+# ----- Bug Comment ----- #
+class BugComment(models.Model):
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True
+    )
+    bug = models.ForeignKey(
+        Bug,
+        on_delete=models.CASCADE,
+        null=True
+    )
+    comment = models.TextField(
+        max_length=1000,
+        null=True
+    )
+    date_created = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    class Meta:
+        verbose_name = ("Bug Comment")
+    
