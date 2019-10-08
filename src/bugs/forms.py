@@ -1,5 +1,5 @@
 from django import forms
-from .models import Bug
+from .models import Bug, BugComment
 
 # ----- Bug Creation Form ----- #
 class BugForm(forms.ModelForm):
@@ -19,3 +19,16 @@ class BugForm(forms.ModelForm):
     class Meta:
         model = Bug
         fields = ('title', 'description')
+
+class BugCommentForm(forms.ModelForm):
+    comment = forms.CharField(
+        min_length=20,
+        max_length=1000,
+        widget=forms.TextInput(attrs={'placeholder': 'Enter comment'}),
+        required=True
+    )
+
+    class Meta:
+        model = BugComment
+        fields = ('comment',)
+
