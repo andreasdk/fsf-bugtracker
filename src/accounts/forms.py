@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from .models import Profile
 
 class UserLoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter Username'}))
@@ -42,3 +43,21 @@ class UserRegistrationForm(UserCreationForm):
             raise ValidationError("Passwords do not match")
 
         return password2
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.CharField(widget=forms.EmailInput(
+        attrs={
+            'placeholder': 'Enter Email Address',
+            'class': 'profile-form'}))
+
+    class Meta:
+        model = User
+        fields = ['email']
+
+class ProfileUpdateForm(forms.ModelForm):
+    image = forms.ImageField(
+        widget=forms.FileInput(attrs={
+            'class': 'profile-form'}))
+    class Meta:
+        model = Profile
+        fields = ['image']

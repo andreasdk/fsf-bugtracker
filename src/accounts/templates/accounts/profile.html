@@ -1,7 +1,44 @@
 {% extends "base.html" %}
+{% load bootstrap_tags %}
 {% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
 {% block content %}
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+
+<div class="container">
+    <!--User account sidebar-->
+    <div class="row user_account">
+      <div class="col-md-3">
+        <div class="account_sidebar">
+          <!--User Profile Photo-->
+            <div class="account_avatar">
+                <img class="img-responsive" src="{{ user.profile.image.url }}">
+            </div>
+            <!--Username and Join Date-->
+            <div class="account_username">
+                <h2 class="heading-primary">{{ user.username }}</h2>
+                <p class="paragraph">Member since:</p>
+                <p class="paragraph">{{ user.date_joined|date:"jS E, Y" }}</p>
+            </div>
+        </div> 
+      </div>
+      <!--Update User Profile-->
+      <div class="col-md-9">
+          <div class="account_content">
+              <h2 class="heading-primary">Update {{ user }}'s Profile</h2>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ user_form | as_bootstrap }}
+                {{ profile_form | as_bootstrap }}
+                <div class="u-padding-top-md u-center-text">
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </div> 
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+
+
 {% endblock %}
 {% block footer %} {% include 'includes/footer.html' %} {% endblock %}
