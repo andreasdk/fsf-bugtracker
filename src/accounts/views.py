@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages, auth
-from .forms import UserLoginForm, UserRegistrationForm
+from .forms import UserLoginForm, UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.template.context_processors import csrf
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+
+
 
 
 def register(request):
@@ -13,12 +16,11 @@ def register(request):
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
             user_form.save()
-
-            user = auth.authenticate(request.POST.get('email'),
-                                     password=request.POST.get('password1'))
+            user = auth.authenticate(username=request.POST['username'],
+            password=request.POST['password1'])
 
             if user:
-                auth.login(request, user)
+                auth.login(request=request, user=user)
                 messages.success(request, "You have successfully registered")
                 return redirect(reverse('index'))
 
@@ -27,8 +29,8 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
 
-    args = {'user_form': user_form}
-    return render(request, template_name, args)
+    context = {'user_form': user_form}
+    return render(request, template_name, context)
 
 def login(request):
     template_name='accounts/login.html'
@@ -65,7 +67,28 @@ def login(request):
 def profile(request):
     template_name='accounts/profile.html'
     """Renders user profile page"""
-    return render(request, template_name)
+    user = User.objects.get(email=request.user.email)
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your account has been updated!')
+            return redirect(reverse("profile"))
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'user_form' : user_form,
+        'profile_form': profile_form,
+        "profile": user
+    }
+
+    return render(request, template_name, context)
 
 @login_required
 def logout(request):
