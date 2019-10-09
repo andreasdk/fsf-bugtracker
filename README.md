@@ -2,7 +2,7 @@
 
 ![Django](https://img.shields.io/badge/django-2.2.6-092E20) ![Python](https://img.shields.io/badge/python-3.6.8-%2333AAFF)
 
-# [Whisk Recipes](https://bugtracker-fsf.herokuapp.com/)
+# [Bug Tracker](https://bugtracker-fsf.herokuapp.com/)
 
 <img src="#" alt="Bug Tracker Home Page" width="800">
 
@@ -174,12 +174,14 @@ This site was built using Bootstrap, as well as refactored designs I used in my 
 The website images were taken from the following sources:
 
 - **Index page images** : [Unsplash](https://unsplash.com/)
+- **Default profile pic** : [Google Image Search](https://static2.scirra.net/avatars/256/631b148a2bab5d3a41ac79151b83674e.png)
 
 
 ### Code
 
 - **Navbar animation, user registration form styles, heading styles, utilities styles** [Jonas Schmedtman Advanced CSS & Sass](https://www.udemy.com/advanced-css-and-sass)
 - **Try Django 2.2** - [CodingEntrepreneurs](https://www.youtube.com/watch?v=-oQvMHpKkms)
+- **Profile Image Model, Profile Update Model** - [Corey Schafer](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/09-Update-User-Profile/django_project/users/models.py)
 
 ### Acknowledgements
 
