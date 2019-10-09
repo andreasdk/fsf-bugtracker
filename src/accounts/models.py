@@ -15,17 +15,7 @@ class Profile(models.Model):
 
     def __str__(self):
         return '{self.user.username} Profile'
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-        img = Image.open(self.image.name)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (256, 256)
-            img.thumbnail(output_size)
-            img.save(self.image.name)
-
+       
 def create_profile(sender, created, instance, **kwargs):
     if created:
         Profile.objects.create(user=instance)
