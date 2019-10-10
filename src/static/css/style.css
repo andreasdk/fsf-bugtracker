@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cabin|Roboto+Condensed&display=swap');
 
 
 /*CSS Variables*/
 
 :root {
-  --primary-color: #006AFF;
-  --primary-color-light: #4D97FF;
-  --primary-color-dark: #003580;
+  --primary-color: #57BA98;
+  --primary-color-light: #65CCB8;
+  --primary-color-dark: #3B945E;
   --secondary-color-light: #ffb900;
   --secondary-color-dark:#ff0000;
   --grey-color-light-1: #f7f7f7;
@@ -16,8 +16,8 @@
   --white-color: #fff;
   --black-color: #0a0a0a;
   --bg-color:#3b0053;
-  --primaryfont: 'Open Sans', sans-serif;
-  --secondaryfont: 'Open Sans Condensed', sans-serif;
+  --primaryfont: 'Roboto Condensed', sans-serif;
+  --secondaryfont: 'Cabin', sans-serif;
 }
 
 /*Root Element Styles*/
@@ -233,11 +233,22 @@ body {
 /***Hero Image**/
 
 .hero{
-  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/hero.jpg);
   background-position: center center;
   background-size: cover;
   height: 100vh; 
 }
+
+.index-hero{
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/hero.jpg);
+ 
+}
+
+.bug-hero{
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/bughero.jpg);
+ 
+}
+
+
 
 .text-box {
   position: absolute;
@@ -432,6 +443,15 @@ Completely transparent at 50% of width at 105degree angle.
   padding: 0;
   border-width: 1px; 
   border-color: var(--grey-color-dark-1)
+}
+/**Cards**/
+.card-header-item {
+  color: var(--grey-color-light-1);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background-color: var(--grey-color-dark-3);
+  padding: .5rem;
+
 }
 
 /**Footer**/
