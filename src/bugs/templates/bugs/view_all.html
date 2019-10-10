@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
+{% block content %}
+
+<section class="hero bug-hero">
+        <div class="text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary-main">Bug Reports</span>
+                <span class="heading-primary-sub">Help us help you</span>
+            </h1>
+        </div>	
+    </section>
+
+<main class="container u-padding-top-lg u-margin-bottom-medium">
+    <h1 class="heading-secondary u-padding-top-lg">Bugs</h1>
+    <div class="row">
+        <!-- Bug Cards -->
+        {% for bug in bugs %}
+			{% include "includes/bug_card.html" %}
+		{% endfor %}
+    </div>
+
+</main>
+
+
+
+{% endblock %}
+
+
+
+{% block footer %} {% include 'includes/footer.html' %} {% endblock %}
