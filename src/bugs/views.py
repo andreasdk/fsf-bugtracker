@@ -5,15 +5,16 @@ from .models import Bug
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 
+# Create new bug view
 @login_required
 def new_bug(request):
     template_name='bugs/new.html'
     if request.method == 'POST':
         bug_form = BugForm(request.POST or None, request.FILES or None)
         if bug_form.is_valid():
-            bug = form.save(commit=False)
+            bug = bug_form.save(commit=False)
             bug.author = request.user
-            bug = form.save()
+            bug = bug_form.save()
             messages.success(
                 request, "Thanks, your bug report has been submitted")
             return redirect(reverse('profile'))
@@ -23,6 +24,7 @@ def new_bug(request):
     context= {'bug_form': bug_form}
     return render(request, template_name, context)
 
+# Edit bug view
 @login_required
 def edit_bug(request, pk):
     template_name='bugs/edit.html'
@@ -30,7 +32,7 @@ def edit_bug(request, pk):
     if request.method == 'POST':
         bug_form = BugForm(request.POST, instance=bug)
         if bug_form.is_valid():
-            bug = form.save(commit=False)
+            bug = bug_form.save(commit=False)
             bug.author = request.user
             bug_form.save()
             messages.success(
@@ -40,4 +42,19 @@ def edit_bug(request, pk):
         bug_form = BugForm(instance=bug)
 
     context= {'bug_form': bug_form}
+    return render(request, template_name, context)
+
+# See all bugs view
+def view_all(request):
+    bugs = Bug.objects.all()
+    template_name = 'bugs/view_all.html'
+    ordering = ['-date_posted']
+    paginate_by = 8
+
+    context= {
+        'bugs': bugs
+    }
+
+    
+
     return render(request, template_name, context)
