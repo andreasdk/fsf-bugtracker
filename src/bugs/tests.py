@@ -2,7 +2,6 @@ from django.test import TestCase, Client
 from django.shortcuts import reverse, get_object_or_404
 from django.conf import settings
 from .forms import BugForm, BugCommentForm
-from .views import new_bug
 from django.contrib.auth.models import User
 
 #User = settings.AUTH_USER_MODEL
@@ -50,3 +49,8 @@ class TestBugView(TestCase):
         response = self.client.get('/bugs/new/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'bugs/new.html')
+    
+    def test_view_all_bugs(self):
+        response = self.client.get('/bugs/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'bugs/view_all.html')
