@@ -28,6 +28,10 @@
     padding: 0;
   }
   
+  body, html {
+    height: 100%;
+    width: 100%;
+  }
   
   /*
   1em = 16px
@@ -245,7 +249,13 @@ body {
 
 .bug-hero{
   background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/bughero.jpg);
- 
+  height: 75vh;
+}
+
+.single-bug-hero{
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/singlebughero.jpg);
+  background-position: bottom;
+  height: 50vh;
 }
 
 
@@ -454,6 +464,124 @@ Completely transparent at 50% of width at 105degree angle.
 
 }
 
+.card-footer-item {
+  color: var(--grey-color-light-1);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  margin-right: .5rem;
+  background-color: var(--grey-color-dark-3);
+  padding: .5rem;
+}
+
+.card a {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/**Comments**/
+.user_avatar {
+	width: 5rem;
+	height: 5rem;
+	display: inline-block;
+  vertical-align: middle;
+}
+
+.user_avatar img {
+  width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.comment_wrapper {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.comment_wrapper .create_comment {
+  width: 100%;
+	padding: 2rem 0;
+}
+
+.comment_wrapper .create_comment .comment_input {
+  display: inline-block;
+	vertical-align: middle;
+	margin-left: 1rem;
+	width: calc(100% - 8rem);
+}
+
+.comment_wrapper .create_comment .comment_input input[type="text"] {
+  width: 100%;
+	font-family: var(--secondaryfont);
+	font-weight: 300;
+	font-size: 1.8rem;
+	padding: .75rem;
+	border: none;
+	border-bottom: 2px solid var(--grey-color-light-1);
+}
+
+.comment_wrapper .create_comment .comment_input input[type="text"]:focus {
+  outline: none;
+	border-bottom: 2px solid var(--grey-color-dark-1);
+}
+
+.comment_wrapper .comment_list {
+  width: 100%;
+	height: auto;
+	padding: .75rem 0;
+	border-top: 1px solid var(--grey-color-light-1);
+}
+
+.comment_wrapper .comment_list .user_comment{
+  list-style-type: none;
+}
+
+.comment_wrapper .comment_list .comment_body {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 8rem);
+  min-height: 65px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 1.6rem;
+  color: #555;
+  background-color: #fff;
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.comment_wrapper .comment_list .comment_toolbar {
+  width: 100%;
+}
+
+.comment_wrapper .comment_list .comment_toolbar ul {
+  list-style-type: none;
+  padding-left: 75px;
+  font-size: 0;
+}
+
+.comment_wrapper .comment_list .comment_toolbar ul li {
+  display: inline-block;
+  padding: 5px;
+  font-size: .9rem;
+  color: var(--grey-color-dark-1);
+}
+
+.comment_wrapper .comment_list .comment_toolbar ul li:hover {
+  cursor: pointer;
+}
+
+.comment_wrapper .comment_list .comment_toolbar .comment_details {
+  display: inline-block;
+  vertical-align: middle;
+  width: 70%;
+  text-align: left;
+}
+
+.comment_wrapper .comment_list .comment_toolbar .comment_details i {
+  margin-right: .4rem;
+}
 /**Footer**/
 /**Centering footer items, and giving footer minimum height**/
 .footer {
