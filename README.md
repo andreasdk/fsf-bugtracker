@@ -182,6 +182,7 @@ The website images were taken from the following sources:
 - **Navbar animation, user registration form styles, heading styles, utilities styles** [Jonas Schmedtman Advanced CSS & Sass](https://www.udemy.com/advanced-css-and-sass)
 - **Try Django 2.2** - [CodingEntrepreneurs](https://www.youtube.com/watch?v=-oQvMHpKkms)
 - **Profile Image Model, Profile Update Model** - [Corey Schafer](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/09-Update-User-Profile/django_project/users/models.py)
+- **Comment form and section** - [Daniel MV](https://codepen.io/danmv/pen/VBVKOV)
 
 ### Acknowledgements
 

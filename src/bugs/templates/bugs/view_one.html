@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
+{% block content %}
+
+<div class="hero single-bug-hero">	
+</div>
+
+<main class="container u-padding-top-lg u-margin-bottom-medium">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title heading-tertiary">{{ bug.title }}</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text paragraph">
+                        {{ bug.description }}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-footer-item">
+                        Author: {{ bug.author }}
+                    </span>
+                    <span class="card-footer-item">
+                        Status: {{ bug.status }}
+                    </span>
+                    <span class="card-footer-item">
+                            Bug #: {{ bug.id }}
+                        </span>
+                </div>
+            </div>  
+        </div>        
+    </div>
+
+    <section class="comment_section container u-padding-top-lg">
+        <h2 class="heading-tertiary">
+            Comments
+        </h2>
+        {% include "includes/comments.html" %}
+    </section>
+    
+
+</main>
+
+
+
+{% endblock %}
+
+
+
+{% block footer %} {% include 'includes/footer.html' %} {% endblock %}
