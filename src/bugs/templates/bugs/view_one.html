@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
+
 {% block content %}
 
 <div class="hero single-bug-hero">	
@@ -12,7 +13,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title heading-tertiary">{{ bug.title }}</h3>
+                    <span class="card-title heading-tertiary">{{ bug.title }}</span>
+                    <span class="card-header-item ml-2">
+                        <i class="fas fa-eye card-header-icon"></i>
+                        Views:{{ bug.views }}
+                    </span>
+                    <span class="card-header-item">
+                       <a href="{% url 'vote' bug.id %}"><i class="far fa-thumbs-up card-header-icon"></i></a>
+                        {{ bug.votes }}
+                    </span>
+
                 </div>
                 <div class="card-body">
                     <p class="card-text paragraph">
@@ -27,8 +37,8 @@
                         Status: {{ bug.status }}
                     </span>
                     <span class="card-footer-item">
-                            Bug #: {{ bug.id }}
-                        </span>
+                        Bug #: {{ bug.id }}
+                    </span>
                 </div>
             </div>  
         </div>        
@@ -44,9 +54,8 @@
 
 </main>
 
-
-
 {% endblock %}
+
 
 
 
