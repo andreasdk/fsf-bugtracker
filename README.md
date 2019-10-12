@@ -183,6 +183,7 @@ The website images were taken from the following sources:
 - **Try Django 2.2** - [CodingEntrepreneurs](https://www.youtube.com/watch?v=-oQvMHpKkms)
 - **Profile Image Model, Profile Update Model** - [Corey Schafer](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/09-Update-User-Profile/django_project/users/models.py)
 - **Comment form and section** - [Daniel MV](https://codepen.io/danmv/pen/VBVKOV)
+- **Pagination** - [simpleisbetterthancomplex.com](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html)
 
 ### Acknowledgements
 
