@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="comment_wrapper">
+    {% if user.is_authenticated %}
     <div class="create_comment">
         <div class="user_avatar">
             <img src="{{ user.profile.image.url }}" alt="User profile image">
@@ -11,6 +12,7 @@
             {{ comment_form | as_bootstrap }} 
         </form>
     </div>
+    {% endif %}
 
     <div class="comment_list">
         <ul class="user_comment">
