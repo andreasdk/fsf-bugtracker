@@ -8,13 +8,13 @@
     <div class="text-box">
         <h1 class="heading-primary">
             <span class="heading-primary-main">Bug Reports</span>
-            <span class="heading-primary-sub">Help us help you</span>
+            <span class="heading-primary-sub">Working on it</span>
         </h1>
     </div>	
 </section>
 
 <main class="container u-padding-top-lg u-margin-bottom-medium">
-    <h2 class="heading-secondary u-padding-top-lg">Bugs</h2>
+    <h2 class="heading-tertiary u-padding-top-lg">Bugs</h2>
     <div class="row">
         <!-- Bug Cards -->
         {% for bug in bugs %}
@@ -22,6 +22,28 @@
 		{% endfor %}
     </div>
 </main>
+
+{% if bugs.has_other_pages %}
+  <ul class="pagination pagination-lg justify-content-center pb-3">
+    {% if bugs.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{ bugs.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+    <li class="page-item"><span class="page-link">&laquo;</span></li>
+    {% endif %}
+    {% for i in bugs.paginator.page_range %}
+      {% if bugs.number == i %}
+        <li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if bugs.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ bugs.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled page-item"><span class="page-link">&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
 
 {% endblock %}
 {% block footer %} {% include 'includes/footer.html' %} {% endblock %}
