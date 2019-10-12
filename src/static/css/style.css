@@ -195,6 +195,10 @@ body {
   margin: 2rem 3rem 1rem;
 }
 
+.card-text {
+  font-size: 1.5rem;
+}
+
 /*Utility Classes*/
 
 .u-center-text {
@@ -458,10 +462,10 @@ Completely transparent at 50% of width at 105degree angle.
 .card-header-item {
   color: var(--grey-color-light-1);
   font-weight: 800;
-  margin-bottom: 1rem;
+  float: right;
+  margin-right: .5rem;
   background-color: var(--grey-color-dark-3);
   padding: .5rem;
-
 }
 
 .card-footer-item {
@@ -473,7 +477,7 @@ Completely transparent at 50% of width at 105degree angle.
   padding: .5rem;
 }
 
-.card a {
+.preview-card a {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -582,6 +586,12 @@ Completely transparent at 50% of width at 105degree angle.
 .comment_wrapper .comment_list .comment_toolbar .comment_details i {
   margin-right: .4rem;
 }
+
+.card-header-icon {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
 /**Footer**/
 /**Centering footer items, and giving footer minimum height**/
 .footer {
