@@ -28,11 +28,6 @@
     padding: 0;
   }
   
-  body, html {
-    height: 100%;
-    width: 100%;
-  }
-  
   /*
   1em = 16px
   Media Queries are cdeclared in em
@@ -163,7 +158,8 @@ body {
   
 @media only screen and (max-width: 56.25em) {
   .heading-secondary {
-    font-size: 3rem; 
+    font-size: 3rem;
+    margin-top:3rem; 
   } 
 }
 @media only screen and (max-width: 37.5em) {
@@ -246,10 +242,20 @@ body {
   height: 100vh; 
 }
 
-.index-hero{
-  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/hero.jpg);
- 
+.bg-video {
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/home.png);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
+/***Video Sizing**/
+.bg-video__content {
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+} 
 
 .bug-hero{
   background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/bughero.jpg);
@@ -261,8 +267,6 @@ body {
   background-position: bottom;
   height: 50vh;
 }
-
-
 
 .text-box {
   position: absolute;
@@ -301,7 +305,6 @@ body {
 
 .btn-primary:hover {
   background-color: var(--primary-color);
-  color: var(--black-color);
 }
 
 .feature-section {
@@ -474,7 +477,13 @@ Completely transparent at 50% of width at 105degree angle.
   margin-bottom: 1rem;
   margin-right: .5rem;
   background-color: var(--grey-color-dark-3);
-  padding: .5rem;
+  padding: .75rem;
+}
+
+.card-image {
+  width:2rem;
+  height:2rem;
+  border-radius:50%;
 }
 
 .preview-card a {
@@ -590,6 +599,23 @@ Completely transparent at 50% of width at 105degree angle.
 .card-header-icon {
   color: var(--primary-color);
   font-size: 1.5rem;
+}
+
+/**Pagination**/
+/**Increases default Bootstrap pagination size**/
+.pagination-lg .page-link {
+  padding: .75rem 1.5rem;
+  font-size: 1.75rem;
+  line-height: 1.5;
+}
+/**FSet pagination btn bg and border color to primary color**/
+.page-item.active .page-link { 
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.page-item .page-link { 
+  color: var(--primary-color);
 }
 
 /**Footer**/
