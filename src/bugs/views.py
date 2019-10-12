@@ -6,6 +6,7 @@ from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create new bug view
 @login_required
@@ -61,7 +62,17 @@ def view_all(request):
     bugs = Bug.objects.all()
     template_name = 'bugs/view_all.html'
     ordering = ['-date_posted']
-    paginate_by = 8
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(bugs, 8)
+
+    try:
+        bugs = paginator.page(page)
+    except PageNotAnInteger:
+        bugs = paginator.page(1)
+    except EmptyPage:
+        bugs = paginator.page(paginator.num_pages)
+
     context= {
         'bugs': bugs
     }
