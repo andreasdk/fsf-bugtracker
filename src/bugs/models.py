@@ -70,4 +70,23 @@ class BugComment(models.Model):
     
     def __str__(self):
         return self.comment
+
+# ----- Bug Votes ----- #
+class BugVotes(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True
+    )
+    bug = models.ForeignKey(
+        Bug,
+        on_delete=models.CASCADE,
+        null=True
+    )
+
+    def __str__(self):
+        return 'Bug # {0} voted for by {1}'.format(
+            self.bug.id, self.user.username)
+   
+    
     
