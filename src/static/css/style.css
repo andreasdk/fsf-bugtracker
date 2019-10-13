@@ -299,12 +299,36 @@ body {
 
 .btn-primary {
   background-color: var(--primary-color);
-  border: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 0;
   color: var(--grey-color-light-1);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-color);
+}
+
+.btn-edit {
+  background-color: var(--primary-color);
+  color: var(--grey-color-light-1);
+  border-radius: 0;
+  width: 100%;
+}
+
+.btn-edit:hover {
+  color: var(--grey-color-light-1);
+}
+
+
+.btn-delete {
+  background-color: var(--secondary-color-dark);
+  color: var(--grey-color-light-1);
+  border-radius: 0;
+  width: 100%;
+}
+
+.btn-delete:hover {
+  color: var(--grey-color-light-1);
 }
 
 .feature-section {
@@ -468,7 +492,7 @@ Completely transparent at 50% of width at 105degree angle.
   float: right;
   margin-right: .5rem;
   background-color: var(--grey-color-dark-3);
-  padding: .5rem;
+  padding: .75rem;
 }
 
 .card-footer-item {
