@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
-
 {% block content %}
 
 <div class="hero single-bug-hero">	
 </div>
 
-<main class="container u-padding-top-lg u-margin-bottom-medium">
+<main class="container u-padding-top-lg px-0 u-margin-bottom-medium">
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -49,6 +47,21 @@
         </div>        
     </div>
 
+    {% if bug.status != "Closed" %}
+        {% if user.id == bug.author.id %}
+    <div class="row m-auto u-padding-top-lg">
+        <!--Edit Button-->
+        <div class="col-6 m-auto">
+            <a href="{% url 'edit_bug' bug.id %}" class="btn btn-edit" role="button">Edit Recipe</a>  
+        </div>
+        <!--Delete Button-->
+        <div class="col-6 m-auto">
+            <a href="{% url 'delete_bug' bug.id %}" class="btn btn-delete" role="button">Delete Recipe</a> 
+        </div>
+    </div>
+        {% endif %}
+    {% endif %}
+ 
     <section class="comment_section container u-padding-top-lg">
         <h2 class="heading-tertiary">
             Comments
@@ -60,8 +73,4 @@
 </main>
 
 {% endblock %}
-
-
-
-
 {% block footer %} {% include 'includes/footer.html' %} {% endblock %}

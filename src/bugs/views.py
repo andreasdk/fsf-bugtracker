@@ -29,9 +29,9 @@ def new_bug(request):
 
 # Edit bug view
 @login_required
-def edit_bug(request, bug_id):
+def edit_bug(request, pk):
     template_name='bugs/edit.html'
-    bug = get_object_or_404(Bug, pk=bug_id)
+    bug = get_object_or_404(Bug, pk=pk)
     if request.method == 'POST':
         bug_form = BugForm(request.POST, instance=bug)
         if bug_form.is_valid():
@@ -44,7 +44,10 @@ def edit_bug(request, bug_id):
     else:
         bug_form = BugForm(instance=bug)
 
-    context= {'bug_form': bug_form}
+    context= {
+        'bug_form': bug_form,
+        'bug': bug,
+    }
     return render(request, template_name, context)
 
 # Delete bug view
