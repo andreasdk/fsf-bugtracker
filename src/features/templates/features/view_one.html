@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
+{% block content %}
+
+<div class="hero single-bug-hero">	
+</div>
+
+<main class="container u-padding-top-lg px-0 u-margin-bottom-medium">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title heading-tertiary">{{ feature.title }}</span>
+                    <span class="card-header-item ml-2">
+                        <i class="fas fa-eye card-header-icon"></i>
+                        Views:{{ feature.views }}
+                    </span>
+                    <span class="card-header-item">
+                        {% if user.is_authenticated %}
+                       <a href="{% url 'vote' feature.id %}"><i class="far fa-thumbs-up card-header-icon"></i></a>
+                        {{ feature.votes }}
+                        {% else %}
+                       <i class="far fa-thumbs-up card-header-icon"></i>
+                        {{ feature.votes }}
+                        {% endif %}
+                    </span>
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text paragraph">
+                        {{ feature.description }}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-footer-item">
+                        Author: {{ feature.author }}
+                    </span>
+                    <span class="card-footer-item">
+                        Status: {{ feature.status }}
+                    </span>
+                    <span class="card-footer-item">
+                        Feature #: {{ feature.id }}
+                    </span>
+                </div>
+            </div>  
+        </div>        
+    </div>
+
+    {% if feature.status != "Closed" %}
+        {% if user.id == feature.author.id %}
+    <div class="row m-auto u-padding-top-lg">
+        <!--Edit Button-->
+        <div class="col-6 m-auto">
+            <a href="{% url 'edit_feature' feature.id %}" class="btn btn-edit" role="button">Edit Feature</a>  
+        </div>
+        <!--Delete Button-->
+        <div class="col-6 m-auto">
+            <a href="{% url 'delete_feature' feature.id %}" class="btn btn-delete" role="button">Delete Feature</a> 
+        </div>
+    </div>
+        {% endif %}
+    {% endif %}
+ 
+    <section class="comment_section container u-padding-top-lg">
+        <h2 class="heading-tertiary">
+            Comments
+        </h2>
+        {% include "includes/comments.html" %}
+    </section>
+    
+
+</main>
+
+{% endblock %}
+{% block footer %} {% include 'includes/footer.html' %} {% endblock %}

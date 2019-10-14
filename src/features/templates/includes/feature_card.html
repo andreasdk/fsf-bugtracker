@@ -1,0 +1,22 @@
+<div class="col-12">
+    <div class="card preview-card u-margin-bottom-medium">
+        <div class="card-header">
+            <span class="card-title heading-tertiary">{{ feature.title }}</span>
+            <span class="card-header-item">
+                Status: {{ feature.status }}
+            </span>
+        </div>
+        <div class="card-body">
+            <p class="card-text paragraph truncate">
+                {{ feature.description }}
+            </p>
+        </div>
+        <div class="card-footer">
+            <span class="card-footer-item">
+                <img src="{{ feature.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
+                Author: {{ feature.author }}
+            </span>
+        </div>
+        <a href="{% url 'view_one' pk=feature.pk %}"></a>
+    </div>  
+</div>
