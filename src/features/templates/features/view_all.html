@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
+{% block content %}
+
+<section class="hero bug-hero">
+    <div class="text-box">
+        <h1 class="heading-primary">
+            <span class="heading-primary-main">Features</span>
+            <span class="heading-primary-sub">Work In Progress</span>
+        </h1>
+    </div>	
+</section>
+
+<main class="container u-padding-top-lg u-margin-bottom-medium">
+    <h2 class="heading-tertiary u-padding-top-lg">Requests</h2>
+    <div class="row">
+        <!-- Bug Cards -->
+        {% for feature in features %}
+			{% include "includes/feature_card.html" %}
+		{% endfor %}
+    </div>
+</main>
+
+{% if feature.has_other_pages %}
+  <ul class="pagination pagination-lg justify-content-center pb-3">
+    {% if feature.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{ feature.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+    <li class="page-item"><span class="page-link">&laquo;</span></li>
+    {% endif %}
+    {% for i in feature.paginator.page_range %}
+      {% if feature.number == i %}
+        <li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if feature.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ feature.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled page-item"><span class="page-link">&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+{% endblock %}
+{% block footer %} {% include 'includes/footer.html' %} {% endblock %}

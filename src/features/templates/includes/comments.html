@@ -1,0 +1,41 @@
+{% load bootstrap_tags %}
+
+{% block content %}
+<div class="comment_wrapper">
+    {% if user.is_authenticated %}
+    <div class="create_comment">
+        <div class="user_avatar">
+            <img src="{{ user.profile.image.url }}" alt="{{ user.username }}">
+        </div>
+        <form method="POST" class="comment_input">
+            {% csrf_token %}
+            {{ comment_form | as_bootstrap }} 
+        </form>
+    </div>
+    {% endif %}
+
+    <div class="comment_list">
+        <ul class="user_comment">
+            {% for comment in comments %}
+            <div class="user_avatar">
+                <img src="{{ comment.author.profile.image.url }}" alt="{{ comment.author }}">
+            </div>
+            <div class="comment_body">
+                {{ comment.comment|linebreaksbr }}
+            </div>
+            <div class="comment_toolbar">
+                <div class="comment_details">
+                    <ul>
+                        <li><i class="fas fa-calendar-alt"></i>{{ comment.date_created }}</li>
+                        <li><i class="fas fa-pencil-alt"></i>{{ comment.author }}</li>
+                    </ul>
+                </div>
+            </div>
+        </ul>
+        {% empty %}
+        <p class="paragraph">No comments here yet :(</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

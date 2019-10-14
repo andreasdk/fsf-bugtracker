@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<main class="bug-form">
+    <a href="{% url 'index' %}" class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+    <div class="container u-padding-top-lg">
+        <h1 class="heading-secondary text-center text-white">New Feature</h1>
+        <form method="POST" class="u-padding-top-lg">
+            {% csrf_token %}
+            {{ feature_form | as_bootstrap }}
+            <div class="u-padding-top-lg u-center-text">
+                <button type="submit" class="btn btn-grey">Submit</button>
+            </div> 
+        </form>
+    </div>
+</main>
+{% endblock %}
+
