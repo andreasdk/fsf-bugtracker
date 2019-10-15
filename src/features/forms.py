@@ -31,4 +31,3 @@ class FeatureCommentForm(forms.ModelForm):
     class Meta:
         model = FeatureComment
         fields = ('comment',)
-
