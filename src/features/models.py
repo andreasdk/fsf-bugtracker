@@ -38,6 +38,10 @@ class Feature(models.Model):
     votes = models.IntegerField(
         default=0
     )
+    price = models.IntegerField(
+        default=10,
+        blank=False
+    )
 
     class Meta:
         ordering: ('-votes')
@@ -83,10 +87,11 @@ class FeatureVotes(models.Model):
         on_delete=models.CASCADE,
         null=True
     )
+    price = models.IntegerField(
+        default=5, 
+        blank=False
+    )
 
     def __str__(self):
         return 'Feature # {0} voted for by {1}'.format(
             self.feature.id, self.user.username)
-   
-    
-    
