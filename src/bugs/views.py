@@ -82,7 +82,7 @@ def view_all(request):
     return render(request, template_name, context)
 
 # Single bug view
-def view_one(request, pk):
+def view_bug(request, pk):
     template_name = 'bugs/view_one.html'
     bug = get_object_or_404(Bug, pk=pk)
     comments = BugComment.objects.filter(bug_id=bug.pk)

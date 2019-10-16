@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap_tags %}
+{% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
+
+{% block content %}
+<section class="hero cart-hero">
+    <div class="text-box">
+        <h1 class="heading-primary">
+            <span class="heading-primary-main">Cart</span>
+        </h1>
+    </div>	
+</section>
+    
+<main class="container u-padding-top-lg u-margin-bottom-medium">
+    <h2 class="heading-tertiary u-padding-top-lg">Items in cart:</h2>
+    <div class="row">
+        <!-- Feature Cards -->
+        {% for item in cart_items %}
+            {% include "includes/cart_card.html" %}
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}
+{% block footer %} {% include 'includes/footer.html' %} {% endblock %}

@@ -5,6 +5,7 @@ from django.urls import path, re_path, include
 from accounts import urls as account_urls
 from bugs import urls as bug_urls
 from features import urls as feature_urls
+from cart import urls as cart_urls
 
 
 from .views import (
@@ -16,6 +17,7 @@ urlpatterns = [
     path('account/', include(account_urls)),
     path('bugs/', include(bug_urls)),
     path('features/', include(feature_urls)),
+    path('cart/', include(cart_urls)),
     path('admin/', admin.site.urls),
     
 ]

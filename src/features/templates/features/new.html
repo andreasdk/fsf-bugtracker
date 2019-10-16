@@ -7,7 +7,7 @@
 <main class="bug-form u-padding-top-lg">
     <div class="container u-padding-top-lg">
         <h1 class="heading-secondary text-center text-white u-padding-top-lg">New Feature</h1>
-        <form method="POST" action="{% url 'new_feature' %}" id="payment-form" class="u-padding-top-lg">
+        <form method="POST" action="{% url 'new_feature' %}"  class="u-padding-top-lg">
             {% csrf_token %}
             {{ feature_form | as_bootstrap }}    
             <div class="u-padding-top-lg u-center-text">
