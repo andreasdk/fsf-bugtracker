@@ -234,6 +234,10 @@ body {
   padding-top: 5rem;
 }
 
+.badge-primary {
+  background-color: var(--primary-color);
+}
+
 /***Hero Image**/
 
 .hero{
@@ -266,6 +270,12 @@ body {
   background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/singlebughero.jpg);
   background-position: bottom;
   height: 50vh;
+}
+
+.cart-hero{
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/cart.jpg);
+  background-position: inherit;
+  height: 75vh;
 }
 
 .text-box {
