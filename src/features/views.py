@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages, auth
 from .forms import FeatureForm, FeatureCommentForm
-from .models import Feature, FeatureComment, FeatureVotes
+from .models import Feature, FeatureComment
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -111,20 +111,3 @@ def view_one(request, pk):
         'user': user
     }
     return render(request, template_name, context)
-
-# Feature vote view
-@login_required
-def vote(request, pk):
-
-    feature = Feature.objects.get(pk=pk)
-    check_user_voted = FeatureVotes.objects.filter(user=request.user, feature=feature)
-    if not check_user_voted:
-        vote = FeatureVotes(user=request.user, feature=feature)
-        vote.save()
-        feature.votes += 1
-        feature.save()
-        return redirect(request.META.get('HTTP_REFERER'))
-    else:
-        messages.error(request, 'Sorry {0} you have already upvoted {1}!'.format(
-                       request.user, feature.title), extra_tags="alert-primary")
-        return redirect(request.META.get('HTTP_REFERER'))
