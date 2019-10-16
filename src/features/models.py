@@ -38,7 +38,7 @@ class Feature(models.Model):
     votes = models.IntegerField(
         default=0
     )
-    price = models.IntegerField(
+    vote_price = models.IntegerField(
         default=10,
         blank=False
     )
@@ -74,24 +74,3 @@ class FeatureComment(models.Model):
     
     def __str__(self):
         return self.comment
-
-# ----- Feature Votes ----- #
-class FeatureVotes(models.Model):
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        null=True
-    )
-    feature = models.ForeignKey(
-        Feature,
-        on_delete=models.CASCADE,
-        null=True
-    )
-    price = models.IntegerField(
-        default=5, 
-        blank=False
-    )
-
-    def __str__(self):
-        return 'Feature # {0} voted for by {1}'.format(
-            self.feature.id, self.user.username)
