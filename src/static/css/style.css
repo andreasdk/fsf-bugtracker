@@ -453,6 +453,11 @@ Completely transparent at 50% of width at 105degree angle.
   display: none;
 }
 
+#payment-form label {
+  display: inherit;
+  font-size: 1.6rem;
+}
+
 .bug-form {
   background-image: linear-gradient(to right bottom, var(--primary-color-light), var(--primary-color-dark));
   height: 100vh;
