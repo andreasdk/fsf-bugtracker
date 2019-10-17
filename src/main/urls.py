@@ -6,7 +6,7 @@ from accounts import urls as account_urls
 from bugs import urls as bug_urls
 from features import urls as feature_urls
 from cart import urls as cart_urls
-
+from checkout import urls as checkout_urls
 
 from .views import (
     index
@@ -18,6 +18,7 @@ urlpatterns = [
     path('bugs/', include(bug_urls)),
     path('features/', include(feature_urls)),
     path('cart/', include(cart_urls)),
+    path('checkout/', include(checkout_urls)),
     path('admin/', admin.site.urls),
     
 ]
