@@ -4,27 +4,26 @@
 
 
 {% block head_js %}
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
     //<![CDATA[
         Stripe.publishableKey = '{{ publishable }}';
     //]]>
 </script>
-<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+<script src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
+
 {% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
 {% block content %}
 
 <main class="container u-padding-top-lg u-margin-bottom-medium">
-        <h1 class="heading-tertiary u-padding-top-lg">Checkout Total: <i class="fas fa-euro-sign card-footer-item">{{ total }}</i></h1>
-        <div class="row">
-            <!-- Bug Cards -->
-            {% for item in cart_items %}
-                {% include "includes/checkout_card.html" %}
-            {% endfor %}
-        </div>
-
-        
+    <h1 class="heading-tertiary u-padding-top-lg">Checkout Total: <i class="fas fa-euro-sign card-footer-item">{{ total }}</i></h1>
+    <div class="row">
+        <!-- Item Cards -->
+        {% for item in cart_items %}
+            {% include "includes/checkout_card.html" %}
+        {% endfor %}
+    </div>
 
 
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">

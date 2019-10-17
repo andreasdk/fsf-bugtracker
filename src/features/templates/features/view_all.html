@@ -13,9 +13,39 @@
     </div>	
 </section>
 
-<main class="container u-padding-top-lg u-margin-bottom-medium">
-    <h2 class="heading-tertiary u-padding-top-lg">Requests</h2>
+<section class="cta-section text-center">
+    <h2 class="heading-secondary py-5">How It Works</h2>
     <div class="row">
+        <div class="col-md-3 py-3">
+            <i class="fas fa-plus cta-icon py-3"></i>
+            <h3 class="heading-tertiary py-3">Request New Features</h3>
+            <p class="paragraph py-2">Got an idea for a new feature? Share it with the community.</p>
+        </div>
+        <div class="col-md-3 py-3">
+            <i class="fas fa-comments cta-icon py-3"></i>
+            <h3 class="heading-tertiary py-3">Got Something To Say?</h3>
+            <p class="paragraph py-2">You can leave a comment below any feature.</p>
+        </div>
+        <div class="col-md-3 py-3">
+            <i class="far fa-thumbs-up cta-icon py-3"></i>
+          <h3 class="heading-tertiary py-3">Vote For Your Ideas</h3>
+          <p class="paragraph py-2">Please note that there is a fee for feature voting. </p>
+        </div>
+        <div class="col-md-3 py-3">
+            <i class="fas fa-thumbtack cta-icon py-3"></i>
+            <h3 class="heading-tertiary py-3">Our Promise</h3>
+            <p class="paragraph py-2">We will work on the most voted feature requests.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<main class="container u-padding-top-lg u-margin-bottom-medium">
+    <span class="card-header-item card-heading-item">
+      <a href=""><i class="fas fa-plus"></i>Add Feature</a>
+    </span>
+    <div class="row u-padding-top">
         <!-- Bug Cards -->
         {% for feature in features %}
 			{% include "includes/feature_card.html" %}

@@ -26,31 +26,6 @@ class MakePaymentForm(forms.Form):
 
 
 class OrderForm(forms.ModelForm):
-    full_name = forms.CharField(
-        label='Full Name',
-        required=True)
-    phone_number = forms.CharField(
-        label='Phone Number',
-        required=True)
-    street_address1 = forms.CharField(
-        label='Street Address 1',
-        required=True)
-    street_address2 = forms.CharField(
-        label='Street Address 2 (optional)',
-        required=False)
-    town_or_city = forms.CharField(
-        label='Town or city',
-        required=True)
-    postcode = forms.CharField(
-        label='Postcode', 
-        required=False)
-    county = forms.CharField(
-        label='County', 
-        required=False)
-    country = forms.CharField(
-        label='Country',
-        required=True)
-    
 
     class Meta:
         model = Order
