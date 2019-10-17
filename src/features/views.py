@@ -20,7 +20,7 @@ def new_feature(request):
             feature = feature_form.save()
             messages.success(
                 request, "Thanks, your feature request has been submitted")
-            return redirect(reverse('profile'))
+            return redirect(reverse('view_all_features'))
     else:
         feature_form = FeatureForm()
 
