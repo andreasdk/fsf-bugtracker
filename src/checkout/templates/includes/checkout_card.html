@@ -1,0 +1,16 @@
+<div class="col-sm-12 col-md-6 my-3">
+    <div class="card preview-card u-margin-bottom-medium">
+        <div class="card-header">
+            <span class="card-title heading-tertiary">{{ item.feature.title }}</span>
+        </div>
+        <div class="card-footer">
+            <span class="card-footer-item">
+                <img src="{{ item.feature.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
+                {{ item.feature.author }}
+            </span>
+            <span class="card-footer-item">
+                Vote Quantity: {{ item.quantity }}
+            </span>
+        </div>
+    </div>  
+</div>
