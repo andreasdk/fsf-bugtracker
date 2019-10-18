@@ -116,15 +116,12 @@ def view_bug(request, pk):
 @login_required
 def vote(request, pk):
 
-    bug = Bug.objects.get(pk=pk)
-    check_user_voted = BugVotes.objects.filter(user=request.user, bug=bug)
-    if not check_user_voted:
-        vote = BugVotes(user=request.user, bug=bug)
-        vote.save()
+    bug = get_object_or_404(Bug, pk=pk)
+    if not request.user.bug_votes.filter(bug_id=pk).exists():
         bug.votes += 1
         bug.save()
-        return redirect(request.META.get('HTTP_REFERER'))
-    else:
-        messages.error(request, 'Sorry {0} you have already upvoted {1}!'.format(
-                       request.user, bug.title), extra_tags="alert-primary")
-        return redirect(request.META.get('HTTP_REFERER'))
+        BugVotes.objects.create(user=request.user, bug=bug)
+        messages.success(request, "Bug upvoted", extra_tags="alert-primary")
+        return redirect('view_bug', pk=bug.pk)
+    return redirect('view_bug', pk=bug.pk)
+    

@@ -184,6 +184,7 @@ The website images were taken from the following sources:
 - **Profile Image Model, Profile Update Model** - [Corey Schafer](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/09-Update-User-Profile/django_project/users/models.py)
 - **Comment form and section** - [Daniel MV](https://codepen.io/danmv/pen/VBVKOV)
 - **Pagination** - [simpleisbetterthancomplex.com](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html)
+- **Unique User Voting** - [Code Institute Slack](https://code-institute-room.slack.com/files/U9BLGCDQU/FHQSA4ZQD/are_you_managing_votes_or_counting_views_of_a_blog_.py)
 
 ### Acknowledgements
 

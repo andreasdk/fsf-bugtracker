@@ -43,10 +43,10 @@
 
 <main class="container u-padding-top-lg u-margin-bottom-medium">
     <span class="card-header-item card-heading-item">
-      <a href=""><i class="fas fa-plus"></i>Add Feature</a>
+      <a href="{% url 'new_feature' %}"><i class="fas fa-plus"></i>Add Feature</a>
     </span>
     <div class="row u-padding-top">
-        <!-- Bug Cards -->
+        <!-- Feature Cards -->
         {% for feature in features %}
 			{% include "includes/feature_card.html" %}
 		{% endfor %}

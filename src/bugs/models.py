@@ -75,6 +75,7 @@ class BugComment(models.Model):
 class BugVotes(models.Model):
     user = models.ForeignKey(
         User,
+        related_name='bug_votes',
         on_delete=models.CASCADE,
         null=True
     )
