@@ -41,9 +41,9 @@
 
 <main class="container u-padding-top-lg u-margin-bottom-medium">
     <span class="card-header-item card-heading-item">
-      <a href=""><i class="fas fa-plus"></i>Add Bug</a>
+      <a href="{% url 'new_bug' %}"><i class="fas fa-plus"></i>Add Bug</a>
     </span>
-    <div class="row">
+    <div class="row u-padding-top">
         <!-- Bug Cards -->
         {% for bug in bugs %}
 			    {% include "includes/bug_card.html" %}
