@@ -9,7 +9,7 @@
         <h1 class="heading-secondary text-center text-white">Edit Feature</h1>
         <form method="POST" class="u-padding-top-lg">
             {% csrf_token %}
-            {{ bug_form | as_bootstrap }}
+            {{ feature_form | as_bootstrap }}
             <div class="u-padding-top-lg u-center-text">
                 <button type="submit" class="btn btn-grey">Submit</button>
             </div> 
