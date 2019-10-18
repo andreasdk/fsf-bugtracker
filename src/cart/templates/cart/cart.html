@@ -20,6 +20,9 @@
             {% include "includes/cart_card.html" %}
         {% endfor %}
     </div>
+    <div class="u-padding-top-lg u-center-text">
+       <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+    </div> 
 </main>
 
 {% endblock %}
