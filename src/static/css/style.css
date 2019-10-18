@@ -191,6 +191,16 @@ body {
   margin: 2rem 3rem 1rem;
 }
 
+.card-paragraph {
+  margin:0;
+}
+
+.card-title {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
 .card-text {
   font-size: 1.5rem;
 }
@@ -296,6 +306,8 @@ body {
   text-decoration: none;
   text-transform: uppercase;
 }
+
+
   
 /**Gives slight box-shadow on hover**/
 .btn:hover {
@@ -316,6 +328,7 @@ body {
 
 .btn-primary:hover {
   background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .btn-edit {
