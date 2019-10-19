@@ -41,15 +41,19 @@
 
 
 
-<main class="container u-padding-top-lg u-margin-bottom-medium">
+<main class="container u-padding-top-lg u-margin-bottom-medium" id="features">
+    {% if user.is_authenticated %}
     <span class="card-header-item card-heading-item">
       <a href="{% url 'new_feature' %}"><i class="fas fa-plus"></i>Add Feature</a>
     </span>
+    {% endif %}
     <div class="row u-padding-top">
         <!-- Feature Cards -->
         {% for feature in features %}
-			{% include "includes/feature_card.html" %}
-		{% endfor %}
+          {% include "includes/feature_card.html" %}
+          {% empty %}
+          <p class="paragraph card-paragraph">No feature requests yet :(</p>
+		    {% endfor %}
     </div>
 </main>
 
