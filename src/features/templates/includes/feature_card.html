@@ -7,14 +7,14 @@
             </span>
         </div>
         <div class="card-body">
-            <p class="card-text paragraph truncate">
+            <p class="card-text paragraph card-paragraph truncate">
                 {{ feature.description }}
             </p>
         </div>
         <div class="card-footer">
             <span class="card-footer-item">
                 <img src="{{ feature.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
-                Author: {{ feature.author }}
+                {{ feature.author }}
             </span>
         </div>
         <a href="{% url 'view_one' pk=feature.pk %}"></a>

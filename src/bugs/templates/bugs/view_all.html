@@ -39,14 +39,16 @@
     </div>
 </section>
 
-<main class="container u-padding-top-lg u-margin-bottom-medium">
+<main class="container u-padding-top-lg u-margin-bottom-medium" id="bug-report">
     <span class="card-header-item card-heading-item">
       <a href="{% url 'new_bug' %}"><i class="fas fa-plus"></i>Add Bug</a>
     </span>
     <div class="row u-padding-top">
         <!-- Bug Cards -->
         {% for bug in bugs %}
-			    {% include "includes/bug_card.html" %}
+          {% include "includes/bug_card.html" %}
+          {% empty %}
+          <p class="paragraph card-paragraph">No bug reports yet :(</p>
 		    {% endfor %}
     </div>
 </main>

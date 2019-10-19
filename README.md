@@ -46,11 +46,21 @@
 
 ## UX
 
-This project is the assessment of the Django modules for the Full Stack Software Development degree at [Code Institute](https://codeinstitute.net/). I chose to create a web application that allows users to create bug reports and request new features. Each user should be able to  **C**reate, **R**ead, **U**pdate, and **D**elete (**CRUD**) their own bugs or feature requests.
+This project is the assessment of the Django modules for the Full Stack Software Development degree at [Code Institute](https://codeinstitute.net/). I chose to create a web application that allows users to create bug reports and request new features. Each user should be able to  **C**reate, **R**ead, **U**pdate, and **D**elete (**CRUD**) their own bugs or feature requests. Users can also leave comments on each bug and feature request, upvote bugs for free and features for a fee.
 
 ### User Stories
 
 "**As a user, I want:**"
+- *to view the site* on my preferred device (mobile, tablet, desktop).
+- *to create my own account*
+- *to update my profile picture*
+- *to create bug reports/feature requests*
+- *to edit my own bug reports/feature requests*
+- *to delete my own bug reports/feature requests*
+- *to upvote bugs free of charge*
+- *to upvote features for a fee*
+- *to view feature upvotes in a cart*
+- *to pay for feature upvotes*.
 
 
 ### Design
@@ -65,14 +75,33 @@ This site was built using Bootstrap, as well as refactored designs I used in my 
 - [Django 2.2.6](https://www.djangoproject.com/)
     - I've used the Python framework to create apps, routes, functions and templates for the back-end of the website.
 
+
 #### Color Scheme
+
+I used a charcoal color for the navbar and header, and then a mid green color (#57ba98) as the primary color for headings, buttons, and backgrounds. My goal was to use different tones of one color as the primary colors so that the overall design is cohesive.
+
+- ![#57BA98](https://placehold.it/15/57BA98/57BA98) `#57BA98` (**mid-green** - *primary-color*)
+- ![#65CCB8](https://placehold.it/15/65CCB8/65CCB8) `#65CCB8` (**light green** - *primary-color-light*)
+- ![#3B945E](https://placehold.it/15/3B945E/3B945E) `#3B945E` (**dark green** - *primary-color-dark*)
+- ![#ff0000](https://placehold.it/15/ff0000/ff0000) `#ff0000` (**red** - *secondary-color*)
+- ![#f7f7f7](https://placehold.it/15/f7f7f7/f7f7f7) `#f7f7f7` (**light grey** - *grey-color-light-1*)
+- ![#777](https://placehold.it/15/777/777) `#777` (**dark grey** - *grey-color-dark-1*)
+- ![#999](https://placehold.it/15/999/999) `#999` (**dark grey** - *grey-color-dark-2*)
+- ![#333](https://placehold.it/15/333/333) `#333` (**charcoal grey** - *grey-color-dark-3*)
+- ![#fff](https://placehold.it/15/fff/fff) `#fff` (**white** - *white-color*)
 
 
 #### Icons
 - [Font Awesome](https://fontawesome.com/)
-    - I used Font Awesome icons for the navbar and footer. I used them in the navbar to give a visual clue as to what page each link leads to. In the footer, the icons direct to my GitHub and LinkedIn accounts.
+    - I used Font Awesome icons for the navbar and footer. I used them in the navbar to give a visual clue as to what page each link leads to. In the footer, the icons direct to my GitHub and LinkedIn accounts. I also used icons in card, to display votes, views, and remove from cart button.
+
 
 #### Typography
+
+- I specified two fonts from [Google Fonts](https://fonts.google.com/) in my CSS variables. Roboto Condensed is used as the primary font of the website, and Cabin is used paragraphs and form labels. I chose only two so that the website content would be easily readable.
+    - [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed)
+    - [Cabin](https://fonts.google.com/specimen/Cabin)
+
 
 
 ### Wireframes
@@ -102,24 +131,28 @@ This site was built using Bootstrap, as well as refactored designs I used in my 
 
 ### Libraries
 - [Bootstrap 4.3.1](https://getbootstrap.com/) Used for its responsive design framework.
-- [JQuery 3.4.0](https://jquery.com) Used for simplified DOM manipulation.
+- [JQuery 3.4.1](https://jquery.com) Used for simplified DOM manipulation.
 - [Google Fonts](https://fonts.google.com/) Used to import custom fonts.
 - [FontAwesome](https://fontawesome.com/) For the icons used through the Whisk Recipes website.
 
 ### Front-End Technologies
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used to write markup text.
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used to create custom styles.
-
+- [Stripe](https://stripe.com/docs/api) - Used to process feature vote payments.
+- [AWS S3](https://aws.amazon.com/) - Used to host static and media folders and files as they cannot be hosted on Heroku
 
 ### Back-End Technologies
 - **Python**    
     - [Python 3.6.8](https://www.python.org/) - Used as the back-end programming language.
 
-- **Flask**
+- **Django**
     - [Django 2.2.6](https://www.djangoproject.com/) - To create the various apps that make up this website.
     
 - **Heroku**
     - [Heroku](https://www.heroku.com) - This app is hosted via Heroku.
+
+- **PostgreSQL**
+    - [Heroku](https://www.postgresql.org/) - PostgreSQL is used as the relation database   
 
 
 ##### back to [top](#table-of-contents)

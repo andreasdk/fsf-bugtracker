@@ -15,11 +15,13 @@ class MakePaymentForm(forms.Form):
         required=False)
     expiry_month = forms.ChoiceField(
         label='Month',
-        choices=MONTH_CHOICES, 
+        choices=MONTH_CHOICES,
+        widget=forms.Select(attrs={'class':'checkout-form-control'}),
         required=False)
     expiry_year = forms.ChoiceField(
         label='Year', 
-        choices=YEAR_CHOICES, 
+        choices=YEAR_CHOICES,
+        widget=forms.Select(attrs={'class':'checkout-form-control'}),
         required=False)
     stripe_id = forms.CharField(
         widget=forms.HiddenInput)
@@ -30,6 +32,6 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = (
-            'full_name', 'phone_number', 'street_address1' , 'street_address2' ,
-            'town_or_city','postcode', 'county', 'country'
+            'full_name', 'phone_number', 'street_address',
+            'town_or_city','postcode', 'country'
         )

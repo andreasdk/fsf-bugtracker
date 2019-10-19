@@ -21,7 +21,12 @@
         {% endfor %}
     </div>
     <div class="u-padding-top-lg u-center-text">
-       <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+        {% if total == 0 %}
+        <p class="paragraph card-paragraph">No items in the cart :(</p>
+        <a href="{% url 'view_all_features' %}" class="btn btn-primary">View Features</a>
+        {% else %}
+        <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+        {% endif %}
     </div> 
 </main>
 
