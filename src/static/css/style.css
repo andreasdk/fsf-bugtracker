@@ -461,6 +461,10 @@ Completely transparent at 50% of width at 105degree angle.
   border-bottom: 3px solid var(--secondary-color-dark);
 }
 
+.checkout-form-control {
+  padding: 0;
+}
+
 .control-label {
   display: none;
 }
