@@ -60,5 +60,10 @@ def checkout(request):
     else:
         payment_form = MakePaymentForm()
         order_form = OrderForm()
+    context = {
+        "order_form": order_form, 
+        "payment_form": payment_form, 
+        "publishable": settings.STRIPE_PUBLISHABLE
+    }
     
-    return render(request, template_name, {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+    return render(request, template_name, context)
