@@ -133,7 +133,7 @@ I used a charcoal color for the navbar and header, and then a mid green color (#
 - [Bootstrap 4.3.1](https://getbootstrap.com/) Used for its responsive design framework.
 - [JQuery 3.4.1](https://jquery.com) Used for simplified DOM manipulation.
 - [Google Fonts](https://fonts.google.com/) Used to import custom fonts.
-- [FontAwesome](https://fontawesome.com/) For the icons used through the Whisk Recipes website.
+- [FontAwesome](https://fontawesome.com/) For the icons used through the Bug Tracker website.
 
 ### Front-End Technologies
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used to write markup text.
@@ -167,12 +167,12 @@ I used a charcoal color for the navbar and header, and then a mid green color (#
 
 ### Validators
 
-
 **HTML**
-
+- [W3C HTML Validator](https://validator.w3.org) - WC3 does not understand the Jinja templating language, so throws up errors for that. Other than the Jinja errors, the code is validated.
 
 
 **CSS**
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - WC3 does not recognize CSS variables, and also threw up errors for some -webkit pseudo element selectors. The rest of the CSS validates without error.
 
 
 **JavaScript**
@@ -188,8 +188,32 @@ I used a charcoal color for the navbar and header, and then a mid green color (#
 
 ### Local Deployment
 
+I developed this project using a virtual environment, and would recommend it.
+
+To run this project locally, you need the following:
+- An IDE. I used [Visual Studio Code](https://code.visualstudio.com/) but you are free to use one of your choice.
+
+The following **must be installed** on your machine:
+- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python 3](https://www.python.org/downloads/)
+- [Git](https://git-scm.com/)
 
 ### Instructions
+- Save a copy of this GitHub repository by clicking the 'Clone or download' button at the top of the page, then on 'Download ZIP'. Extract the ZIP file to the folder you will be working in. Alternatively, if you have Git installed locally, you can clone the repository with the following command:
+    - `git clone https://github.com/andreasdk/fsf-bugtracker.git`.
+- Open a terminal window and change directory (cd) to the directory you extracted the files to.
+- Create a **env.py** file with your credentials (SECRET_KEY for example)
+- Install all required modules with the command:
+    - `sudo -H pip3 -r requirements.txt`
+- In a terminal window, with the virtual environment running and from the src folder, run the following command:
+    - `python manage.py runserver`
+- You should now be able to view the website in browser on localhost (http://127.0.0.1:8000 )
+- Then you need to run migrations on the app models:
+    - `python manage.py makemigrations`
+    - `python manage.py migrate`
+- To access the admin panel, you must create an admin user:
+    - `python manage.py createsuperuser`
+
 
 
 ### Remote Deployment
