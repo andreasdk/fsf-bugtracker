@@ -18,9 +18,11 @@
                     </span>
                     <span class="card-header-item">
                         {% if user.is_authenticated %}
-                       <a href="{% url 'vote' bug.id %}"><i class="far fa-thumbs-up card-header-icon mr-2"></i>{{ bug.votes }}</a>
+                       <a href="{% url 'vote' bug.id %}"><i class="far fa-thumbs-up card-header-icon mr-2"></i></a>
+                       {{ bug.votes }}
                         {% else %}
-                       <i class="far fa-thumbs-up card-header-icon mr-2">{{ bug.votes }}</i>
+                       <i class="far fa-thumbs-up card-header-icon mr-2"></i>
+                       {{ bug.votes }}
                         {% endif %}
                     </span>
 
@@ -32,7 +34,7 @@
                 </div>
                 <div class="card-footer">
                     <span class="card-footer-item">
-                        Author: {{ bug.author }}
+                        {{ bug.author }}
                     </span>
                     <span class="card-footer-item">
                         Status: {{ bug.status }}
