@@ -8,7 +8,7 @@ User = settings.AUTH_USER_MODEL
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(
-        default='default.jpg', 
+        default='default.png', 
         upload_to='profile_pics',
         blank=True,
         null=True)

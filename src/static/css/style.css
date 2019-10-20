@@ -526,6 +526,10 @@ Completely transparent at 50% of width at 105degree angle.
   padding: .75rem;
 }
 
+.card-header-item a{
+  color: var(--white-color);
+}
+
 .card-footer-item {
   color: var(--grey-color-light-1);
   font-weight: 800;

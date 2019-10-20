@@ -8,7 +8,8 @@ def view_cart(request):
     """A View that renders the cart contents page"""
     return render(request, template_name)
 
-
+# Add to cart
+@login_required
 def add_to_cart(request, id):
     """Add a quantity of the specified feature to the cart"""
     quantity = int(request.POST.get('quantity'))
@@ -22,19 +23,16 @@ def add_to_cart(request, id):
     request.session['cart'] = cart
     return redirect(reverse('view_all_features'))
 
-
-def adjust_cart(request, id):
+# Remove an item from the cart
+@login_required
+def delete_item(request, id):
     """
-    Adjust the quantity of the specified feature to the specified
-    amount
-    """
-    quantity = int(request.POST.get('quantity'))
-    cart = request.session.get('cart', {})
-
-    if quantity > 0:
-        cart[id] = quantity
-    else:
-        cart.pop(id)
-    
-    request.session['cart'] = cart
+    Remove an item from the cart.
+    """ 
+    if request.method == 'POST':
+        item_id = request.POST.get('id')
+        cart = request.session.get('cart', {})
+        if cart[item_id] > 0:
+            cart.pop(item_id)
+            request.session['cart'] = cart
     return redirect(reverse('view_cart'))
