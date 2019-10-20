@@ -1,14 +1,19 @@
 <div class="col-sm-12 col-md-6 my-3">
-    <div class="card preview-card u-margin-bottom-medium">
+    <div class="card u-margin-bottom-medium">
         <div class="card-header">
             <span class="card-title heading-tertiary card-title">{{ item.feature.title }}</span>
-            <span class="card-header-item ml-2">
-                <i class="fas fa-trash-alt card-header-icon"></i>
-                Remove
+            <span class="card-header-item">
+                <form method="POST" action="{% url 'delete_item' item.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="id" value="{{ item.feature.id }}">
+                    <a href="#" onclick="$(this).closest('form').submit()"><i class="fas fa-trash-alt card-header-icon mr-2 "></i>Remove</a>
+                    
+                </form>
             </span>
         </div>
         <div class="card-body">
-            <p class="card-text paragraph card-paragraph truncate">
+            <p class="card-text paragraph card-paragraph text-truncate">
                 {{ item.feature.description }}
             </p>
         </div>
