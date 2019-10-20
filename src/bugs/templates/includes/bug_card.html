@@ -14,7 +14,7 @@
         <div class="card-footer">
             <span class="card-footer-item">
                 <img src="{{ bug.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
-                Author: {{ bug.author }}
+                {{ bug.author }}
             </span>
         </div>
         <a href="{% url 'view_bug' pk=bug.pk %}"></a>
