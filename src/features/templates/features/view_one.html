@@ -22,10 +22,12 @@
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
                             <input type="hidden" name="id" value="{{ feature.id }}">
-                            <a href="#" onclick="$(this).closest('form').submit()"><i class="far fa-thumbs-up card-header-icon mr-2"></i>{{ feature.votes }}</a>  
+                            <a href="#" onclick="$(this).closest('form').submit()"><i class="far fa-thumbs-up card-header-icon mr-2"></i></a> 
+                            {{ feature.votes }} 
                         </form>
                         {% else %}
-                       <i class="far fa-thumbs-up card-header-icon mr-2">{{ feature.votes }}</i>
+                       <i class="far fa-thumbs-up card-header-icon mr-2"></i>
+                       {{ feature.votes }}
                         {% endif %}
                     </span>
 
