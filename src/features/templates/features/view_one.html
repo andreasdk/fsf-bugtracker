@@ -39,11 +39,26 @@
                 </div>
                 <div class="card-footer">
                     <span class="card-footer-item">
+                        <img src="{{ feature.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
                         {{ feature.author }}
                     </span>
+                    {% if feature.status == 'New' %}
                     <span class="card-footer-item">
                         Status: {{ feature.status }}
                     </span>
+                    {% elif feature.status == "In Progress" %}
+                    <span class="card-footer-item bg-primary">
+                        Status: {{ feature.status }}
+                    </span>
+                    {% elif feature.status == "Closed" %}
+                    <span class="card-footer-item bg-warning">
+                        Status: {{ feature.status }}
+                    </span>
+                    {% elif feature.status == "Complete" %}
+                    <span class="card-footer-item bg-success">
+                        Status: {{ feature.status }}
+                    </span>
+                    {% endif %}
                     <span class="card-footer-item">
                         Feature #: {{ feature.id }}
                     </span>
@@ -52,7 +67,7 @@
         </div>        
     </div>
 
-    {% if feature.status != "Closed" %}
+    {% if feature.status != "Closed" and feature.status != 'Complete' %}
         {% if user.id == feature.author.id %}
     <div class="row m-auto u-padding-top-lg">
         <!--Edit Button-->

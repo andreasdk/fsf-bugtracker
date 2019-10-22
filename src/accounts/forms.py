@@ -47,7 +47,6 @@ class UserRegistrationForm(UserCreationForm):
 class UserUpdateForm(forms.ModelForm):
     email = forms.CharField(widget=forms.EmailInput(
         attrs={
-            'placeholder': 'Enter Email Address',
             'class': 'profile-form'}))
 
     class Meta:

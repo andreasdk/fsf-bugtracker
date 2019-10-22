@@ -34,11 +34,26 @@
                 </div>
                 <div class="card-footer">
                     <span class="card-footer-item">
+                        <img src="{{ bug.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
                         {{ bug.author }}
                     </span>
+                    {% if bug.status == 'New' %}
                     <span class="card-footer-item">
                         Status: {{ bug.status }}
                     </span>
+                    {% elif bug.status == "In Progress" %}
+                    <span class="card-footer-item bg-primary">
+                        Status: {{ bug.status }}
+                    </span>
+                    {% elif bug.status == "Closed" %}
+                    <span class="card-footer-item bg-warning">
+                        Status: {{ bug.status }}
+                    </span>
+                    {% elif bug.status == "Complete" %}
+                    <span class="card-footer-item bg-success">
+                        Status: {{ bug.status }}
+                    </span>
+                    {% endif %}
                     <span class="card-footer-item">
                         Bug #: {{ bug.id }}
                     </span>
@@ -47,7 +62,7 @@
         </div>        
     </div>
 
-    {% if bug.status != "Closed" %}
+    {% if bug.status != "Closed" and bug.status != "Complete" %}
         {% if user.id == bug.author.id %}
     <div class="row m-auto u-padding-top-lg">
         <!--Edit Button-->
