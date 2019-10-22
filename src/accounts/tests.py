@@ -69,6 +69,7 @@ class TestUserUpdateForm(TestCase):
         form.save()
         self.assertTrue(form.is_valid())
 
+# Credit: https://github.com/TravelTimN/ci-milestone05-fsfw/blob/master/project/accounts/tests.py
 class TestProfileUpdateForm(TestCase):
     def test_update_profile_image(self):
         newImage = ProfileUpdateForm
