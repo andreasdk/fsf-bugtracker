@@ -116,6 +116,35 @@ I used a charcoal color for the navbar and header, and then a mid green color (#
 
 ### Existing Features
 
+**Navbar**
+- The navbar is displayed on the homepage, bugs page, features page, single bug/feature page, cart, checkout, and the profile page. In its logged out state, it displays links to the home page, the bugs page, features page, the login page, and the register page. Each link has an icon to give a visual clue as to the linked page content. On desktop,
+the links have a hover effect which causes the background and text color to invert via a right side sliding animation. On smaller tablet and mobile screens, the navbar is accessed via a toggler and the nav links are centred.
+
+- Visitors who are not logged in, or who have no account see the following navbar links.
+    1. Home
+    2. Bugs
+    3. Features
+    4. Login
+    4. Register 
+
+- Logged in users see the following navbar links.
+    1. Home
+    2. Bugs
+    3. Features
+    4. Cart
+    5. Profile
+    6. Logout
+
+**Account Registration**
+- A user can register an account by creating a username and a password, and inputting an email address. The username input field has a red bottom border while unvalidated, which changes to the primary color (#57BA98) when validated. The same validation style applies to the password fields, which must match in order for a registration to be successful. If the username is not unique or the passwords do not match, the website will redirect to the register page, and a flash message appears to guide the user. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the homepage.
+
+**Account Login**
+- A user can  log in to their account by inputting their username and password. The username input field has a red bottom border while unvalidated, which changes to the primary color (#57BA98) when validated. The same validation style applies to the password field. Validation in the login form means that both fields must be filled in. If the user inputs the wrong username and/or password, they are redirected back to the form. A flash message appears to give them feedback about why login was not successful. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the homepage.
+
+**Account Logout**
+- When a user logs in, the login and registration links no longer appear on the navbar. Instead, the user sees links to their cart, their profile page, and to log out. On clicking logout, the session is ended and the user is redirected to the homepage.
+
+
 ### Features Left to Implement
 
 
@@ -190,71 +219,57 @@ In addition to those, I also used coverage to find out the overall coverage of m
 <details>
 <summary>Clickto expand the full <b>Coverage Report</b></summary>
 
-Name                                             Stmts   Miss  Cover
---------------------------------------------------------------------
-accounts/__init__.py                                 0      0   100%
-accounts/admin.py                                    1      0   100%
-accounts/apps.py                                     3      3     0%
-accounts/forms.py                                   40      2    95%
-accounts/migrations/0001_initial.py                  7      0   100%
-accounts/migrations/0002_auto_20191020_1918.py       4      0   100%
-accounts/migrations/__init__.py                      0      0   100%
-accounts/models.py                                  14      1    93%
-accounts/tests.py                                   65      0   100%
-accounts/urls.py                                     4      0   100%
-accounts/urls_reset.py                               4      0   100%
-accounts/views.py                                   61     39    36%
-bugs/__init__.py                                     0      0   100%
-bugs/admin.py                                        5      0   100%
-bugs/apps.py                                         3      3     0%
-bugs/forms.py                                       13      0   100%
-bugs/migrations/0001_initial.py                      7      0   100%
-bugs/migrations/0002_auto_20191018_2218.py           6      0   100%
-bugs/migrations/__init__.py                          0      0   100%
-bugs/models.py                                      31      3    90%
-bugs/tests.py                                       45      0   100%
-bugs/urls.py                                         3      0   100%
-bugs/views.py                                       83     54    35%
-cart/__init__.py                                     0      0   100%
-cart/admin.py                                        1      0   100%
-cart/apps.py                                         3      3     0%
-cart/contexts.py                                    13      4    69%
-cart/migrations/__init__.py                          0      0   100%
-cart/models.py                                       1      0   100%
-cart/tests.py                                       18      0   100%
-cart/urls.py                                         3      0   100%
-cart/views.py                                       21     14    33%
-checkout/__init__.py                                 0      0   100%
-checkout/admin.py                                    7      0   100%
-checkout/apps.py                                     3      3     0%
-checkout/forms.py                                   14      0   100%
-checkout/migrations/0001_initial.py                  6      0   100%
-checkout/migrations/0002_auto_20191019_1324.py       4      0   100%
-checkout/migrations/__init__.py                      0      0   100%
-checkout/models.py                                  19      2    89%
-checkout/tests.py                                    1      0   100%
-checkout/urls.py                                     3      0   100%
-checkout/views.py                                   43     32    26%
-custom_storages.py                                   6      0   100%
-env.py                                               9      0   100%
-features/__init__.py                                 0      0   100%
-features/admin.py                                    4      0   100%
-features/apps.py                                     3      3     0%
-features/forms.py                                   13      0   100%
-features/migrations/0001_initial.py                  7      0   100%
-features/migrations/__init__.py                      0      0   100%
-features/models.py                                  27      2    93%
-features/tests.py                                   45      0   100%
-features/urls.py                                     3      0   100%
-features/views.py                                   74     46    38%
-main/__init__.py                                     0      0   100%
-main/settings.py                                    46      2    96%
-main/urls.py                                        14      2    86%
-main/views.py                                        3      0   100%
-main/wsgi.py                                         4      4     0%
-manage.py                                           12      2    83%
---------------------------------------------------------------------
-TOTAL                                              829    224    73%
+| **Name** | **Stmts** | **Miss** |  **Cover** |
+| :--- | ---: | ---: | ---: |
+| *accounts/__init__.py* | 0 | 0 | **100%** |
+| accounts/admin.py* | 1 | 0 | **100%** |
+| accounts/apps.py*  | 3 | 3 | **0%** |
+| accounts/forms.py* | 42 | 2 | **95%** |
+| *accounts/models.py* | 14 | 1 | **93%** |
+| *accounts/tests.py* | 65 | 0 | **100%** |
+| *accounts/urls.py | 4 | 0 | **100%** |
+| *accounts/urls_reset.py | 4 | 0 | **100%** |
+|accounts/views.py* | 61 | 39 | **36%** |
+| *bugs/__init__.py* | 0 | 0 | **100%** |
+| *bugs/admin.py* | 45 | 0 | **100%** |
+| *bugs/apps.py*   | 3 | 3 | **0%** |
+| *bugs/forms.py*  | 13 | 0 | **100%** |
+| *bugs/models.py* | 13 | 3 | **90%** |
+| *bugs/tests.py*  | 45 | 0 | **100%** |
+| *bugs/urls.py*  | 3 | 0 | **100%** |
+| *bugs/views.py* | 83 | 54 | **35%** |
+| *cart/__init__.py* | 0 | 0 | **100%** |
+| *cart/admin.py* | 1 | 0 | **100%** |
+| *cart/apps.py*  | 3 | 3 | **0%** |
+| *cart/contexts.py* | 13 | 4 | **69%** |
+| *cart/models.py* | 1 | 0 | **100%** |
+| *cart/tests.py*  | 18 | 0 | **100%** |
+| *cart/urls.py* | 3 | 0 | **100%** |
+| *cart/views.py* | 21 | 14 | **33%** |
+| *checkout/__init__.py* | 0 | 0 | **100%** |
+| *checkout/admin.py* | 7 | 0 | **100%** |
+| *checkout/apps.py*  | 3 | 3 | **0%** |
+| *checkout/forms.py* | 14 | 0 | **100%** |
+| *checkout/models.py* | 19 | 2 | **89%** |
+| *checkout/tests.py* | 1 | 0 | **100%** |
+| *checkout/urls.py*  | 2 | 0 | **100%** |
+| *checkout/views.py* | 43 | 32 | **26%** |
+| *custom_storages.py* | 6 | 0 | **100%** |
+| *features/__init__.py* | 0 | 0 | **100%** |
+| *features/admin.py | 4 | 0 | **100%** |
+| *features/apps.py*  | 3 | 3 | **0%** |
+| *features/forms.py* | 13 | 0 | **100%** |
+| *features/models.py* | 27 | 2 | **93%** |
+| *features/tests.py* | 45 | 0 | **100%** |
+| *features/urls.py*  | 3 | 0 | **100%** |
+| *features/views.py* | 74 | 46 | **38%** |
+| *main/__init__.py* | 0 | 0 | **100%** |
+| *main/settings.py* | 46 | 2 | **96%** |
+| *main/urls.py*  | 14 | 2 | **86%** |
+| *main/views.py* | 3 | 0 | **100%** |
+| *main/wsgi.py*  | 4| 4 | **0%** |
+| :--- | ---: | ---: | ---: |
+| **TOTAL** | **829**  | **224** | **73%** |
 
 </details>
 
