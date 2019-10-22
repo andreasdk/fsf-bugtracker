@@ -6,3 +6,6 @@ media/
 bin/
 lib/
 include/
+htmlcov/
+.coverage
+.coveragerc
