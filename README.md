@@ -178,7 +178,86 @@ I used a charcoal color for the navbar and header, and then a mid green color (#
 **JavaScript**
 
 
- ### Known Issues
+### Automated Testing
+
+I used Django's testing framework to carry out 27 tests on app forms, models and views. Tests can be run with the following command:
+    - `python manage.py test`
+
+I also used Travis CI to test continuous integration. I found this very useful as sometimes builds would fail and the log helped me pinpoint where the error was.
+
+In addition to those, I also used coverage to find out the overall coverage of my tests, and it currently reaches 73%.
+
+<details>
+<summary>Clickto expand the full <b>Coverage Report</b></summary>
+
+Name                                             Stmts   Miss  Cover
+--------------------------------------------------------------------
+accounts/__init__.py                                 0      0   100%
+accounts/admin.py                                    1      0   100%
+accounts/apps.py                                     3      3     0%
+accounts/forms.py                                   40      2    95%
+accounts/migrations/0001_initial.py                  7      0   100%
+accounts/migrations/0002_auto_20191020_1918.py       4      0   100%
+accounts/migrations/__init__.py                      0      0   100%
+accounts/models.py                                  14      1    93%
+accounts/tests.py                                   65      0   100%
+accounts/urls.py                                     4      0   100%
+accounts/urls_reset.py                               4      0   100%
+accounts/views.py                                   61     39    36%
+bugs/__init__.py                                     0      0   100%
+bugs/admin.py                                        5      0   100%
+bugs/apps.py                                         3      3     0%
+bugs/forms.py                                       13      0   100%
+bugs/migrations/0001_initial.py                      7      0   100%
+bugs/migrations/0002_auto_20191018_2218.py           6      0   100%
+bugs/migrations/__init__.py                          0      0   100%
+bugs/models.py                                      31      3    90%
+bugs/tests.py                                       45      0   100%
+bugs/urls.py                                         3      0   100%
+bugs/views.py                                       83     54    35%
+cart/__init__.py                                     0      0   100%
+cart/admin.py                                        1      0   100%
+cart/apps.py                                         3      3     0%
+cart/contexts.py                                    13      4    69%
+cart/migrations/__init__.py                          0      0   100%
+cart/models.py                                       1      0   100%
+cart/tests.py                                       18      0   100%
+cart/urls.py                                         3      0   100%
+cart/views.py                                       21     14    33%
+checkout/__init__.py                                 0      0   100%
+checkout/admin.py                                    7      0   100%
+checkout/apps.py                                     3      3     0%
+checkout/forms.py                                   14      0   100%
+checkout/migrations/0001_initial.py                  6      0   100%
+checkout/migrations/0002_auto_20191019_1324.py       4      0   100%
+checkout/migrations/__init__.py                      0      0   100%
+checkout/models.py                                  19      2    89%
+checkout/tests.py                                    1      0   100%
+checkout/urls.py                                     3      0   100%
+checkout/views.py                                   43     32    26%
+custom_storages.py                                   6      0   100%
+env.py                                               9      0   100%
+features/__init__.py                                 0      0   100%
+features/admin.py                                    4      0   100%
+features/apps.py                                     3      3     0%
+features/forms.py                                   13      0   100%
+features/migrations/0001_initial.py                  7      0   100%
+features/migrations/__init__.py                      0      0   100%
+features/models.py                                  27      2    93%
+features/tests.py                                   45      0   100%
+features/urls.py                                     3      0   100%
+features/views.py                                   74     46    38%
+main/__init__.py                                     0      0   100%
+main/settings.py                                    46      2    96%
+main/urls.py                                        14      2    86%
+main/views.py                                        3      0   100%
+main/wsgi.py                                         4      4     0%
+manage.py                                           12      2    83%
+--------------------------------------------------------------------
+TOTAL                                              829    224    73%
+
+</details>
+
 
 ##### back to [top](#table-of-contents)
 
@@ -218,6 +297,25 @@ The following **must be installed** on your machine:
 
 ### Remote Deployment
 
+The app can be deployed via [Heroku](https://www.heroku.com/). To deploy, you need to do the following:
+- In the terminal from the src directory, create a `requirements.txt` file using the command `pip freeze > requirements.txt`.
+- In the terminal from the src directory, create a `Procfile` by running the `echo web: gunicorn main.wsgi:application > Procfile` command.
+- Create a new app on [Heroku dashboard](https://dashboard.heroku.com/apps), give it a name and set the region to whichever is closest to you.
+- On the Heroku website, navigate to *Resources* , then *Add-Ons*, and search for *Heroku Postgres*. Once selected , update your *env.py* with the postgres database credentials:
+    - os.environ.setdefault("DATABASE_URL", "DATABASE_URL_GOES_HERE")
+- Navigate to*Settings* on Heroku,  and click on *Reveal Config Vars*. Here, you must enter all the values from your *env.py* file.
+- As this project is in a subdirectory, you can deploy it to Heroku using the following commands:
+    - `npm install -g heroku`
+    - `heroku login`
+    - `heroku git:remote -a my-app` (in this case, my-app is the name of your Heroku project)
+- Then navigate to the root project folder and run
+    - `git subtree push --prefix src heroku master`
+- The static and media folders cannot be hosted on Heroku, so you must host this via [Amazon AWS](https://aws.amazon.com/) You need to create a unique bucket for this project from the *S3 buckets* section.
+- You will also need to sign up for a [Stripe](https://stripe.com) account to process the payment functionality of the checkout app. Navigate to the *Developers* section, then to *API KEYS*.
+Update your *env.py* file with those values.
+    - os.environ.setdefault("STRIPE_PUBLISHABLE", "STRIPE_PUBLISHABLE_GOES_HERE")
+    - os.environ.setdefault("STRIPE_SECRET", "STRIPE_SECRET_GOES_HERE")
+- It should now be possible to launch the app via Heroku.
 
 ##### back to [top](#table-of-contents)
 
