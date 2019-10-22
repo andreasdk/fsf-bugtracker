@@ -40,7 +40,7 @@ def edit_feature(request, pk):
             feature.save()
             messages.success(
                 request, "Thanks, your feature request has been updated")
-            return redirect(reverse('index'))
+            return redirect(reverse('view_all_features'))
     else:
         feature_form = FeatureForm(instance=feature)
 
