@@ -16,7 +16,7 @@
                         <i class="fas fa-eye card-header-icon"></i>
                         Views:{{ bug.views }}
                     </span>
-                    <span class="card-header-item">
+                    <span class="card-header-item vote">
                         {% if user.is_authenticated %}
                        <a href="{% url 'vote' bug.id %}"><i class="far fa-thumbs-up card-header-icon mr-2"></i></a>
                        {{ bug.votes }}
