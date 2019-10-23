@@ -2,9 +2,23 @@
     <div class="card preview-card u-margin-bottom-medium">
         <div class="card-header">
             <span class="card-title heading-tertiary">{{ bug.title }}</span>
+            {% if bug.status == 'New' %}
             <span class="card-header-item">
                 Status: {{ bug.status }}
             </span>
+            {% elif bug.status == "In Progress" %}
+            <span class="card-header-item bg-primary">
+                Status: {{ bug.status }}
+            </span>
+            {% elif bug.status == "Closed" %}
+            <span class="card-header-item bg-warning">
+                Status: {{ bug.status }}
+            </span>
+            {% elif bug.status == "Complete" %}
+            <span class="card-header-item bg-success">
+                Status: {{ bug.status }}
+            </span>
+            {% endif %}
         </div>
         <div class="card-body">
             <p class="card-text paragraph card-paragraph text-truncate">
