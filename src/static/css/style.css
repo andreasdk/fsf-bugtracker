@@ -205,6 +205,11 @@ body {
   font-size: 1.5rem;
 }
 
+/*Makes whole voting badge have cursor icon for visual consistency*/
+.vote {
+  cursor: pointer;
+}
+
 /*Utility Classes*/
 
 .u-center-text {
@@ -273,6 +278,12 @@ body {
 
 .bug-hero{
   background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/bughero.jpg);
+  height: 75vh;
+}
+
+
+.feature-hero{
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.6), rgba(90, 85, 96, 0.6)), url(../img/featurehero.jpg);
   height: 75vh;
 }
 
