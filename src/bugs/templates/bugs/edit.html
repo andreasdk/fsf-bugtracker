@@ -7,10 +7,12 @@
     <a href="{% url 'index' %}" class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
     <div class="container u-padding-top-lg">
         <h1 class="heading-secondary text-center text-white">Edit Bug</h1>
+        <!--Edit Bug-->
         <form method="POST" class="u-padding-top-lg">
             {% csrf_token %}
             {{ bug_form | as_bootstrap }}
             <div class="u-padding-top-lg u-center-text">
+                <!--Submit Button-->
                 <button type="submit" class="btn btn-grey">Submit</button>
             </div> 
         </form>
