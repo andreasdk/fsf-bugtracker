@@ -3,6 +3,7 @@
         <div class="card-header">
             <span class="card-title heading-tertiary card-title">{{ item.feature.title }}</span>
             <span class="card-header-item">
+                <!--Delete Item From Cart-->
                 <form method="POST" action="{% url 'delete_item' item.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="quantity" value="1">
@@ -12,16 +13,19 @@
                 </form>
             </span>
         </div>
+        <!--Cart Item Description-->
         <div class="card-body">
             <p class="card-text paragraph card-paragraph text-truncate">
                 {{ item.feature.description }}
             </p>
         </div>
         <div class="card-footer">
+            <!--Cart Item Author-->
             <span class="card-footer-item">
                 <img src="{{ item.feature.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
                 {{ item.feature.author }}
             </span>
+            <!--Cart Item Price-->
             <span class="card-footer-item">
                 Price: &euro; {{ item.feature.vote_price }}
             </span>
