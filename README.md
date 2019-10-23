@@ -3,9 +3,7 @@
 ![Django](https://img.shields.io/badge/django-2.2.6-092E20) ![Python](https://img.shields.io/badge/python-3.6.8-%2333AAFF)
 
 # [Bug Tracker](https://bugtracker-fsf.herokuapp.com/)
-
-<img src="#" alt="Bug Tracker Home Page" width="800">
-
+I chose to build an issue tracker in Django as the full-stack project assessment at Code Institute. The idea behind this project was to deliver a website where users of a fictional product can create bug reports and make new feature requests. Each report and request can be voted for by users to indicate they either have or support this issue. Voting for bugs is free, but voting for features costs a fee. Users can also leave comments under each report and request. Each bug and feature can be set by admin to a different status (New, In Progress, Closed, Completed) so users can follow progress and have a resolution to their posts.
 ---
 
 ## Table of Contents
@@ -40,7 +38,6 @@
     - [**Content**](#content)
     - [**Media**](#media)
     - [**Code**](#code)
-    - [**Acknowledgements**](#acknowledgements)
 
 ---
 
@@ -441,6 +438,5 @@ The website images were taken from the following sources:
 - **Pagination** - [simpleisbetterthancomplex.com](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html)
 - **Unique User Voting** - [Code Institute Slack](https://code-institute-room.slack.com/files/U9BLGCDQU/FHQSA4ZQD/are_you_managing_votes_or_counting_views_of_a_blog_.py)
 
-### Acknowledgements
 
 ##### back to [top](#table-of-contents)
