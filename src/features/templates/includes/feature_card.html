@@ -1,7 +1,9 @@
 <div class="col-12">
     <div class="card preview-card u-margin-bottom-medium">
         <div class="card-header">
+            <!--Feature Title-->
             <span class="card-title heading-tertiary">{{ feature.title }}</span>
+            <!--Feature Status-->
             {% if feature.status == 'New' %}
             <span class="card-header-item">
                 Status: {{ feature.status }}
@@ -21,19 +23,23 @@
             {% endif %}
         </div>
         <div class="card-body">
+            <!--Feature Desctiption-->
             <p class="card-text paragraph card-paragraph text-truncate">
                 {{ feature.description }}
             </p>
         </div>
         <div class="card-footer">
+            <!--Feature Author-->
             <span class="card-footer-item">
                 <img src="{{ feature.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
                 {{ feature.author }}
             </span>
+            <!--Feature ID #-->
             <span class="card-footer-item">
-                    Feature #: {{ feature.id }}
+                Feature #: {{ feature.id }}
             </span>
         </div>
+        <!--Feature Link-->
         <a href="{% url 'view_one' pk=feature.pk %}"></a>
     </div>  
 </div>

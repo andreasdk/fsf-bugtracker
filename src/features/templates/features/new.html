@@ -6,9 +6,11 @@
     <a href="{% url 'index' %}" class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
     <div class="container u-padding-top-lg">
         <h1 class="heading-secondary text-center text-white u-padding-top-lg">New Feature</h1>
+        <!-- Create New-->
         <form method="POST" action="{% url 'new_feature' %}"  class="u-padding-top-lg">
             {% csrf_token %}
-            {{ feature_form | as_bootstrap }}    
+            {{ feature_form | as_bootstrap }} 
+            <!--Submit Button-->   
             <div class="u-padding-top-lg u-center-text">
                 <button type="submit" class="btn btn-grey">Submit</button>
             </div> 

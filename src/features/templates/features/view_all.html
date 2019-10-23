@@ -3,7 +3,7 @@
 
 {% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
 {% block content %}
-
+<!--Hero Image-->
 <section class="hero feature-hero">
     <div class="text-box">
         <h1 class="heading-primary">
@@ -12,7 +12,7 @@
         </h1>
     </div>	
 </section>
-
+<!--Call To Action-->
 <section class="cta-section text-center">
     <h2 class="heading-secondary py-5">How It Works</h2>
     <div class="row">
@@ -38,9 +38,7 @@
         </div>
     </div>
 </section>
-
-
-
+<!--View All Features-->
 <main class="container u-padding-top-lg u-margin-bottom-medium" id="features">
     {% if user.is_authenticated %}
     <span class="card-header-item card-heading-item">
@@ -56,7 +54,7 @@
 		    {% endfor %}
     </div>
 </main>
-
+<!--Pagination-->
 {% if feature.has_other_pages %}
   <ul class="pagination pagination-lg justify-content-center pb-3">
     {% if feature.has_previous %}
