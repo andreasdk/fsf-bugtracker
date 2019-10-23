@@ -2,20 +2,24 @@
 {% load static %}
 {% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
 {% block content %}
-
+<!--Hero Image-->
 <div class="hero single-bug-hero">	
 </div>
 
+<!--Bug Card-->
 <main class="container u-padding-top-lg px-0 u-margin-bottom-medium">
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
+                    <!--Bug Title-->
                     <span class="card-title heading-tertiary">{{ bug.title }}</span>
+                    <!--Bug Views-->
                     <span class="card-header-item ml-2">
                         <i class="fas fa-eye card-header-icon"></i>
                         Views:{{ bug.views }}
                     </span>
+                    <!--Bug Votes-->
                     <span class="card-header-item vote">
                         {% if user.is_authenticated %}
                        <a href="{% url 'vote' bug.id %}"><i class="far fa-thumbs-up card-header-icon mr-2"></i></a>
@@ -25,18 +29,20 @@
                        {{ bug.votes }}
                         {% endif %}
                     </span>
-
                 </div>
                 <div class="card-body">
+                    <!--Bug Description-->
                     <p class="card-text paragraph card-paragraph">
                         {{ bug.description }}
                     </p>
                 </div>
                 <div class="card-footer">
+                    <!--Bug Author-->
                     <span class="card-footer-item">
                         <img src="{{ bug.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
                         {{ bug.author }}
                     </span>
+                    <!--Bug Status-->
                     {% if bug.status == 'New' %}
                     <span class="card-footer-item">
                         Status: {{ bug.status }}
@@ -54,6 +60,7 @@
                         Status: {{ bug.status }}
                     </span>
                     {% endif %}
+                    <!--Bug ID #-->
                     <span class="card-footer-item">
                         Bug #: {{ bug.id }}
                     </span>
@@ -61,7 +68,7 @@
             </div>  
         </div>        
     </div>
-
+    <!--Edit/Delete Bug-->
     {% if bug.status != "Closed" and bug.status != "Complete" %}
         {% if user.id == bug.author.id %}
     <div class="row m-auto u-padding-top-lg">
@@ -76,7 +83,7 @@
     </div>
         {% endif %}
     {% endif %}
- 
+    <!--Bug Comments-->
     <section class="comment_section container u-padding-top-lg">
         <h2 class="heading-tertiary">
             Comments

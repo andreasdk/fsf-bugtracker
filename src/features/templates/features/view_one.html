@@ -2,7 +2,7 @@
 {% load static %}
 {% block nav %} {% include 'includes/navbar.html' %} {% endblock %}
 {% block content %}
-
+<!--Hero Image-->
 <div class="hero single-bug-hero">	
 </div>
 
@@ -11,13 +11,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
+                    <!--Feature Title-->
                     <span class="card-title heading-tertiary">{{ feature.title }}</span>
                     <span class="card-header-item ml-2">
+                        <!--Feature Views-->
                         <i class="fas fa-eye card-header-icon"></i>
                         Views:{{ feature.views }}
                     </span>
                     <span class="card-header-item vote">
                         {% if user.is_authenticated %}
+                        <!--Vote Form-->
                         <form method="POST" action="{% url 'add_to_cart' feature.id %}">
                             {% csrf_token %}
                             <input type="hidden" name="quantity" value="1">
@@ -33,15 +36,18 @@
 
                 </div>
                 <div class="card-body">
+                    <!--Feature Description-->
                     <p class="card-text paragraph card-paragraph">
                         {{ feature.description }}
                     </p>
                 </div>
                 <div class="card-footer">
+                    <!--Feature Author-->
                     <span class="card-footer-item">
                         <img src="{{ feature.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
                         {{ feature.author }}
                     </span>
+                    <!--Feature Status-->
                     {% if feature.status == 'New' %}
                     <span class="card-footer-item">
                         Status: {{ feature.status }}
@@ -59,6 +65,7 @@
                         Status: {{ feature.status }}
                     </span>
                     {% endif %}
+                    <!--Feature ID #-->
                     <span class="card-footer-item">
                         Feature #: {{ feature.id }}
                     </span>
@@ -66,7 +73,7 @@
             </div>  
         </div>        
     </div>
-
+    <!--Feature Edit/Delete-->
     {% if feature.status != "Closed" and feature.status != 'Complete' %}
         {% if user.id == feature.author.id %}
     <div class="row m-auto u-padding-top-lg">
@@ -81,7 +88,7 @@
     </div>
         {% endif %}
     {% endif %}
- 
+    <!--Feature Comment Section-->
     <section class="comment_section container u-padding-top-lg">
         <h2 class="heading-tertiary">
             Comments

@@ -1,7 +1,9 @@
 <div class="col-12">
     <div class="card preview-card u-margin-bottom-medium">
         <div class="card-header">
+            <!--Bug Title-->
             <span class="card-title heading-tertiary">{{ bug.title }}</span>
+            <!--Bug Status-->
             {% if bug.status == 'New' %}
             <span class="card-header-item">
                 Status: {{ bug.status }}
@@ -21,16 +23,19 @@
             {% endif %}
         </div>
         <div class="card-body">
+            <!--Bug Description-->
             <p class="card-text paragraph card-paragraph text-truncate">
                 {{ bug.description }}
             </p>
         </div>
         <div class="card-footer">
+            <!--Bug Author-->
             <span class="card-footer-item">
                 <img src="{{ bug.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
                 {{ bug.author }}
             </span>
         </div>
+        <!--View Bug Link-->
         <a href="{% url 'view_bug' pk=bug.pk %}"></a>
     </div>  
 </div>

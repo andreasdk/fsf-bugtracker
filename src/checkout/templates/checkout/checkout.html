@@ -25,27 +25,28 @@
         {% endfor %}
     </div>
 
-
+    <!-- Payment Form -->
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
         <h3 class="heading-tertiary u-padding-top-lg u-margin-bottom-large">Payment Details:</h3>
     
         <div id="credit-card-errors" style="display: none;">
             <div id="alert-message block-message error" id="stripe-error-message"></div>
         </div>
-
+        
         <div class="row">
+            <!-- Card Infomation -->
             <div class="form-group col-md-6">
                 <h6 class="heading-tertiary">Card Details</h6>
-                {{ payment_form | as_bootstrap }}
-                
+                {{ payment_form | as_bootstrap }}  
             </div>
-                
+            <!-- Billing Infomation -->   
             <div class="form-group col-md-6">
                 <h6 class="heading-tertiary">Billing Address</h6>
                 {{ order_form | as_bootstrap }}
             </div>
         </div>
         {% csrf_token %}
+        <!-- Submit Payment Button -->
         <div class="u-padding-top-lg u-center-text ">
             <input class=" btn btn-primary m-auto" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
         </div>

@@ -7,13 +7,14 @@
         <div class="user_avatar">
             <img src="{{ user.profile.image.url }}" alt="{{ user.username }}">
         </div>
+        <!--Comment Form-->
         <form method="POST" class="comment_input">
             {% csrf_token %}
             {{ comment_form | as_bootstrap }} 
         </form>
     </div>
     {% endif %}
-
+    <!--List Of Comments-->
     <div class="comment_list">
         <ul class="user_comment">
             {% for comment in comments %}
