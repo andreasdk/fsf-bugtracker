@@ -96,7 +96,7 @@ def view_bug(request, pk):
             comment.save()
             messages.success(
                 request, "Thanks, your comment has been submitted.")
-            return redirect('view_one', pk=bug.pk)
+            return redirect('view_bug', pk=bug.pk)
     else:
         comment_form = BugCommentForm()
         bug.views += 1
