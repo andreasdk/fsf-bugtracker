@@ -64,7 +64,6 @@ def delete_feature(request, pk):
 def view_all(request):
     features = Feature.objects.all()
     template_name = 'features/view_all.html'
-    ordering = ['-date_posted']
     page = request.GET.get('page', 1)
 
     paginator = Paginator(features, 8)
