@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 
 
-
+# Register View
 def register(request):
     """Renders the registration form"""
     template_name='accounts/register.html'
@@ -32,6 +32,7 @@ def register(request):
     context = {'user_form': user_form}
     return render(request, template_name, context)
 
+# Login View
 def login(request):
     template_name='accounts/login.html'
 
@@ -63,6 +64,7 @@ def login(request):
     args = {'user_form': user_form, 'next': request.GET.get('next', '')}
     return render(request, template_name, args)
 
+# User Profile
 @login_required
 def profile(request):
     template_name='accounts/profile.html'
@@ -90,6 +92,7 @@ def profile(request):
 
     return render(request, template_name, context)
 
+# Logout
 @login_required
 def logout(request):
     """Logs user out and redirects to index page"""
