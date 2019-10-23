@@ -425,8 +425,10 @@ Update your *env.py* file with those values.
 
 The website images were taken from the following sources:
 
-- **Index page images** : [Unsplash](https://unsplash.com/)
+- **Index page images and hero images** : [Unsplash](https://unsplash.com/)
 - **Default profile pic** : [Google Image Search](https://static2.scirra.net/avatars/256/631b148a2bab5d3a41ac79151b83674e.png)
+- **User profile pics** : [Generated Photos](https://generated.photos/)
+- **Index hero video** : [Coverr](https://coverr.co/)
 
 
 ### Code
