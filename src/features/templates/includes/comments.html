@@ -3,6 +3,7 @@
 {% block content %}
 <div class="comment_wrapper">
     {% if user.is_authenticated %}
+    <!--Comment Form-->
     <div class="create_comment">
         <div class="user_avatar">
             <img src="{{ user.profile.image.url }}" alt="{{ user.username }}">
@@ -13,7 +14,7 @@
         </form>
     </div>
     {% endif %}
-
+    <!--Comment List-->
     <div class="comment_list">
         <ul class="user_comment">
             {% for comment in comments %}
@@ -33,6 +34,7 @@
             </div>
         </ul>
         {% empty %}
+        <!--Else If Comment List Empty-->
         <p class="paragraph">No comments here yet :(</p>
         {% endfor %}
     </div>

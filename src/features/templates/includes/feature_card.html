@@ -2,9 +2,23 @@
     <div class="card preview-card u-margin-bottom-medium">
         <div class="card-header">
             <span class="card-title heading-tertiary">{{ feature.title }}</span>
+            {% if feature.status == 'New' %}
             <span class="card-header-item">
                 Status: {{ feature.status }}
             </span>
+            {% elif feature.status == "In Progress" %}
+            <span class="card-header-item bg-primary">
+                Status: {{ feature.status }}
+            </span>
+            {% elif feature.status == "Closed" %}
+            <span class="card-header-item bg-warning">
+                Status: {{ feature.status }}
+            </span>
+            {% elif feature.status == "Complete" %}
+            <span class="card-header-item bg-success">
+                Status: {{ feature.status }}
+            </span>
+            {% endif %}
         </div>
         <div class="card-body">
             <p class="card-text paragraph card-paragraph text-truncate">
@@ -15,6 +29,9 @@
             <span class="card-footer-item">
                 <img src="{{ feature.author.profile.image.url }}" alt="{{ user.username }}" class="card-image">
                 {{ feature.author }}
+            </span>
+            <span class="card-footer-item">
+                    Feature #: {{ feature.id }}
             </span>
         </div>
         <a href="{% url 'view_one' pk=feature.pk %}"></a>
