@@ -27,21 +27,21 @@
               <h2 class="heading-primary">Update {{ user }}'s Profile</h2>
               <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
+                <!--Update User Email-->
                 <h4 class="heading-tertiary">Update Profile Email</h4>
                 <div class="row">
                   <div class="col-12 u-margin-bottom-small">
                       {{ user_form | as_bootstrap }}
                   </div> 
                 </div>
-
+                <!--Update User Profile Image-->
                 <h4 class="heading-tertiary">Update Profile Image</h4>
                 <div class="row">
                   <div class="col-12 u-margin-bottom-small">
                       {{ profile_form | as_bootstrap }}
                   </div> 
                 </div>
-                
-                
+                <!--Update Profile Button-->
                 <div class="u-padding-top-md u-center-text">
                     <button type="submit" class="btn btn-primary">Update Profile</button>
                 </div> 
@@ -50,9 +50,5 @@
         </div>
     </div>
 </div>
-  
-
-
-
 {% endblock %}
 {% block footer %} {% include 'includes/footer.html' %} {% endblock %}
