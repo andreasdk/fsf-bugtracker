@@ -145,8 +145,46 @@ the links have a hover effect which causes the background and text color to inve
 - When a user logs in, the login and registration links no longer appear on the navbar. Instead, the user sees links to their cart, their profile page, and to log out. On clicking logout, the session is ended and the user is redirected to the homepage.
 
 
+**View All Bugs**
+- On the bugs page, bug cards are displayed from oldest to most recent. There is pagination, with a limit of 8 bugs per page. A user can click on a bug card to be directed to the individual bug report page.
+
+
+**View All Features**
+- On the features page, feature cards are displayed from oldest to most recent. There is pagination, with a limit of 8 features per page. A user can click on a feature card to be directed to the individual feature request page.
+
+**View A Single Bug**
+- A user can click on a bug card from the the bugs page to access a single bug report. A bug report displays the bug title, description, author, ID number, views, and votes. There is also a comment section below each bug report, and bug authors can see edit and delete buttons on this page. A user can vote for a bug here free of charge.
+
+**View A Single Feature Request**
+- A user can click on a feature card from the the features page to access a single feature request. A feature requesr displays the feature title, description, author, ID number, views, and votes. There is also a comment section below each feature request, and request authors can see edit and delete buttons on this page. A user can vote for a request here for a 10 euro fee.
+
+
+**Create A Bug Report**
+- A logged in user is able to create a bug report by clicking on the 'Add Bug' link on the Bugs page. They are then invited to fill in a form with the relevant bug data.
+
+**Edit A Bug Report**
+- A logged in user who is also the bug author is able to edit a bug report by clicking on the 'Edit' button on the specific bug page. They are then invited to fill in a form with the relevant bug data.
+
+**Create A Feature Request**
+- A logged in user is able to create a feature request by clicking on the 'Add Feature' link on the Features page. They are then invited to fill in a form with the relevant data.
+
+**Edit A feature request**
+- A logged in user who is also the request author is able to edit a feature request by clicking on the 'Edit' button on the specific feature page. They are then invited to fill in a form with the relevant data.
+
+**Cart**
+- A logged in user can vote for feature requests, which is then added to their cart. In the cart, they can view the contents and delete items. There is a link to the checkout.
+
+**Checkout**
+- A logged in user can proceed to the checkout, where they can see a summary of their order and the total price. They are invited to fill out a personal info form and a card info form. Upon submit, their order is either validated and the votes are added to the corresponding features or the payment fails and they are redirected back to the checkout. 
+
+
+
 ### Features Left to Implement
 
+Due to time constraints, there are some additional features I wasn't able to implement.
+
+**Bug/Feature Type**
+- I think that in their current state, the bug and feature apps have a lot of similar code. I would like to make it more DRY by using one app instead, and a user can select whether they are creating a bug or a feature request
 
 ##### back to [top](#table-of-contents)
 
@@ -190,9 +228,44 @@ the links have a hover effect which causes the background and text color to inve
 
 ## Testing
 
+In addition to automated tests, I manually tested the website with debugger.
+
+**User Registration**
+I created my own account and tested website features with it. I can log in, update my email and profile image, add, edit, and delete my own tests and features. I also made test accounts to see if it was possible to delete or edit another user's recipes from another account.
+
+**Add A Bug/Feature**
+I made dummy bug reports and feature requests to test the create functions. I attempted to submit the forms without some required fields, but it wasn't possible.
+
+**Update A Bug/Feature**
+I tested a number of bug reports and feature requests to make sure the edit functions were working correctly. When the form is successfully validated, the bug reports and feature requests update with the new data.
+
+**Delete A Bug/Feature**
+I tested the delete function on dummy bug reports and feature requests, and it removes the selected bug reports and feature requests from the database as well as all related data.
+
+**Read A Bug/Feature**
+Individual bug reports and feature requests were tested by clicking on the bug and feature cards. The bug and feature data is successfully displayed on screen. The votes, views, author, status and ID are all displayed. The comment section also displays comments, and accepts new ones.
+
+**Profile Page**
+The account page successfully shows user details such as username and join date. Users can successfully update their email and profile image here.
+
+**Cart**
+I viewed the empty cart, and it shows as empty with a link to view features. I added feature votes to the cart, and they are displayed there and can be removed as well.
+
+**Checkout**
+I used the Strip test card number to fill in the payment form, and a successful payment results in votes to be added to the corresponding features. 
 
 ### Compatibility
 
+I tested across a range of browsers using [BrowserStack](https://www.browserstack.com/). 
+
+- Chrome *v.74*
+- Edge *v.18*
+- Firefox *v.67*
+- Safari *v.12* (Mojave)
+- Opera *v.62*
+- Internet Explorer *v.11*
+
+I also tested responsiveness using a Lenovo Yoga in laptop and tablet mode, as well as on a Huawei P20 phone. The website renders poorly on Internet Explorer, but renders as intended on modern browsers. I noticed a play button appeared in the homepage header video in iOS, so I set a bg-image for the video container in case the video didn't render.
 
 ### Validators
 
@@ -205,6 +278,18 @@ the links have a hover effect which causes the background and text color to inve
 
 
 **JavaScript**
+- [JSHint](https://jshint.com/) 
+  - **stripe.js**:
+        - METRICS:
+            - There are 3 functions in this file. Function with the largest signature take 2 arguments, while the median is 0. Largest function has 11 statements in it, while the median is 4. The most complex function has a cyclomatic complexity value of 2 while the median is 1.
+        - UNDEFINED VARIABLES:
+            - `Stripe`
+            - `$`
+    - **scripts.js**:
+        - METRICS:
+            - There is only one function in this file. It takes no arguments. This function contains only one statement. Cyclomatic complexity number for this function is 1.
+        - UNDEFINED VARIABLES:
+            - `$`
 
 
 ### Automated Testing

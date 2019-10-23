@@ -64,7 +64,6 @@ def delete_bug(request, pk):
 def view_all(request):
     bugs = Bug.objects.all()
     template_name = 'bugs/view_all.html'
-    ordering = ['-date_posted']
     page = request.GET.get('page', 1)
 
     paginator = Paginator(bugs, 8)
