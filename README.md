@@ -3,7 +3,8 @@
 ![Django](https://img.shields.io/badge/django-2.2.6-092E20) ![Python](https://img.shields.io/badge/python-3.6.8-%2333AAFF)
 
 # [Bug Tracker](https://bugtracker-fsf.herokuapp.com/)
-I chose to build an issue tracker in Django as the full-stack project assessment at Code Institute. The idea behind this project was to deliver a website where users of a fictional product can create bug reports and make new feature requests. Each report and request can be voted for by users to indicate they either have or support this issue. Voting for bugs is free, but voting for features costs a fee. Users can also leave comments under each report and request. Each bug and feature can be set by admin to a different status (New, In Progress, Closed, Completed) so users can follow progress and have a resolution to their posts.
+
+
 ---
 
 ## Table of Contents
